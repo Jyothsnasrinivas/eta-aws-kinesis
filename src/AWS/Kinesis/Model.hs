@@ -784,3 +784,24 @@ data {-# CLASS "com.amazonaws.services.kinesis.model.IncreaseStreamRetentionPeri
 type instance Inherits IncreaseStreamRetentionPeriodResult = '[AmazonWebServiceResult ResponseMetadata]
 
 -- End com.amazonaws.services.kinesis.model.IncreaseStreamRetentionPeriodResult
+
+-- Start com.amazonaws.services.kinesis.model.ListStreamsRequest
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.ListStreamsRequest" #-} ListStreamsRequest = ListStreamsRequest (Object# ListStreamsRequest)
+  deriving Class
+
+type instance Inherits ListStreamsRequest = '[AmazonWebServiceRequest]
+
+foreign import java unsafe "getLimit" getLimitLSR :: Java ListStreamsRequest String
+
+foreign import java unsafe "setLimit" setLimitLSR :: String -> Java ListStreamsRequest ()
+
+foreign import java unsafe "withLimit" withLimitLSR :: String -> Java ListStreamsRequest ListStreamsRequest
+
+foreign import java unsafe getExclusiveStartStreamName :: Java ListStreamsRequest String
+
+foreign import java unsafe setExclusiveStartStreamName :: String -> Java ListStreamsRequest ()
+
+foreign import java unsafe withExclusiveStartStreamName :: String -> Java ListStreamsRequest ListStreamsRequest
+
+-- End com.amazonaws.services.kinesis.model.ListStreamsRequest
