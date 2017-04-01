@@ -68,10 +68,42 @@ data {-# CLASS "com.amazonaws.services.kinesis.model.DecreaseStreamRetentionPeri
 
 type instance Inherits DecreaseStreamRetentionPeriodRequest = '[AmazonWebServiceRequest]
 
+foreign import java unsafe "getStreamName" getStreamNameDSRPR :: Java DeleteStreamRequest String
+
+foreign import java unsafe "setStreamName" setStreamNameDSRPR :: String -> Java DeleteStreamRequest ()
+
+foreign import java unsafe "withStreamName"
+  withStreamNameDSRPR :: String -> Java DeleteStreamRequest DeleteStreamRequest
+
 foreign import java unsafe getRetentionPeriodHours :: Java DecreaseStreamRetentionPeriodRequest JInteger
 
 foreign import java unsafe setRetentionPeriodHours :: JInteger -> Java DecreaseStreamRetentionPeriodRequest ()
 
 foreign import java unsafe withRetentionPeriodHours :: JInteger -> Java DecreaseStreamRetentionPeriodRequest DecreaseStreamRetentionPeriodRequest
 
--- End com.amazonaws.services.kinesis.model.CreateStreamRequest
+-- End com.amazonaws.services.kinesis.model.DecreaseStreamRetentionPeriodRequest
+
+-- Start com.amazonaws.services.kinesis.model.DecreaseStreamRetentionPeriodResult
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.DecreaseStreamRetentionPeriodResult" #-} DecreaseStreamRetentionPeriodResult = DecreaseStreamRetentionPeriodResult (Object# DecreaseStreamRetentionPeriodResult)
+  deriving Class
+
+type instance Inherits DecreaseStreamRetentionPeriodResult = '[AmazonWebServiceResult ResponseMetadata]
+
+-- End com.amazonaws.services.kinesis.model.DecreaseStreamRetentionPeriodResult
+
+-- Start com.amazonaws.services.kinesis.model.DeleteStreamRequest
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.DeleteStreamRequest" #-} DeleteStreamRequest = DeleteStreamRequest (Object# DeleteStreamRequest)
+  deriving Class
+
+type instance Inherits DeleteStreamRequest = '[AmazonWebServiceRequest]
+
+foreign import java unsafe "getStreamName" getStreamNameDSR :: Java DeleteStreamRequest String
+
+foreign import java unsafe "setStreamName" setStreamNameDSR :: String -> Java DeleteStreamRequest ()
+
+foreign import java unsafe "withStreamName"
+  withStreamNameDSR :: String -> Java DeleteStreamRequest DeleteStreamRequest
+
+-- End com.amazonaws.services.kinesis.model.DeleteStreamRequest
