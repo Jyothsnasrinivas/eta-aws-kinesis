@@ -439,11 +439,11 @@ foreign import java unsafe "setStreamName" setStreamNameDEMR :: String -> Java D
 foreign import java unsafe "withStreamName"
   withStreamNameDEMR :: String -> Java DescribeStreamRequest DescribeStreamRequest
 
-foreign import java unsafe getShardLevelMetrics :: Java DisableEnhancedMonitoringRequest (List JString)
+foreign import java unsafe "getShardLevelMetrics" getShardLevelMetricsDS :: Java DisableEnhancedMonitoringRequest (List JString)
 
-foreign import java unsafe setShardLevelMetrics :: Collection JString -> Java DisableEnhancedMonitoringRequest ()
+foreign import java unsafe "setShardLevelMetrics" setShardLevelMetricsDS :: Collection JString -> Java DisableEnhancedMonitoringRequest ()
 
-foreign import java unsafe withShardLevelMetrics
+foreign import java unsafe "withShardLevelMetrics" withShardLevelMetricsDS
   :: Collection JString -> Java DisableEnhancedMonitoringRequest DisableEnhancedMonitoringRequest
 
 foreign import java unsafe "withShardLevelMetrics" withShardLevelMetrics2
@@ -467,12 +467,12 @@ foreign import java unsafe getCurrentShardLevelMetrics
 foreign import java unsafe getDesiredShardLevelMetrics
   :: Java DisableEnhancedMonitoringResult (List JString)
 
-foreign import java unsafe "getStreamName" getStreamNameDEMResult :: Java DescribeStreamResult String
+foreign import java unsafe "getStreamName" getStreamNameDEMResult :: Java DisableEnhancedMonitoringResult String
 
-foreign import java unsafe "setStreamName" setStreamNameDEMResult :: String -> Java DescribeStreamResult ()
+foreign import java unsafe "setStreamName" setStreamNameDEMResult :: String -> Java DisableEnhancedMonitoringResult ()
 
 foreign import java unsafe "withStreamName"
-  withStreamNameDEMResult :: String -> Java DescribeStreamResult DescribeStreamRequest
+  withStreamNameDEMResult :: String -> Java DisableEnhancedMonitoringResult DisableEnhancedMonitoringResult
 
 foreign import java unsafe setCurrentShardLevelMetrics
   :: Collection JString -> Java DisableEnhancedMonitoringResult ()
@@ -499,3 +499,37 @@ foreign import java unsafe "withDesiredShardLevelMetrics" withDesiredShardLevelM
   :: JStringArray -> Java DisableEnhancedMonitoringResult ()
 
 -- End com.amazonaws.services.kinesis.model.DisableEnhancedMonitoringResult
+
+-- Start com.amazonaws.services.kinesis.model.EnableEnhancedMonitoringRequest
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.EnableEnhancedMonitoringRequest" #-} EnableEnhancedMonitoringRequest = EnableEnhancedMonitoringRequest (Object# EnableEnhancedMonitoringRequest)
+  deriving Class
+
+type instance Inherits EnableEnhancedMonitoringRequest = '[AmazonWebServiceRequest]
+
+foreign import java unsafe "getStreamName" getStreamNameEEMR :: Java EnableEnhancedMonitoringRequest String
+
+foreign import java unsafe "setStreamName" setStreamNameEEMR :: String -> Java EnableEnhancedMonitoringRequest ()
+
+foreign import java unsafe "withStreamName"
+  withStreamNameEEMR :: String -> Java EnableEnhancedMonitoringRequest EnableEnhancedMonitoringRequest
+
+foreign import java unsafe "getShardLevelMetrics"
+  getShardLevelMetricsEEMR :: Java EnableEnhancedMonitoringRequest (List JString)
+
+foreign import java unsafe "setShardLevelMetrics"
+  setShardLevelMetricsEEMR :: Collection JString -> Java EnableEnhancedMonitoringRequest ()
+
+foreign import java unsafe "withShardLevelMetrics"
+  withShardLevelMetricsEEMR :: Collection JString
+  -> Java EnableEnhancedMonitoringRequest EnableEnhancedMonitoringRequest
+
+foreign import java unsafe "withShardLevelMetrics"
+  withShardLevelMetricsEEMR2 :: MetricsNameArray
+  -> Java EnableEnhancedMonitoringRequest EnableEnhancedMonitoringRequest
+
+foreign import java unsafe "withShardLevelMetrics"
+  withShardLevelMetricsEEMR2 :: JStringArray
+  -> Java EnableEnhancedMonitoringRequest EnableEnhancedMonitoringRequest
+
+-- End com.amazonaws.services.kinesis.model.EnableEnhancedMonitoringRequest
