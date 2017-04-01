@@ -1084,3 +1084,33 @@ data {-# CLASS "com.amazonaws.services.kinesis.model.SplitShardResult" #-} Split
 type instance Inherits SplitShardResult = '[AmazonWebServiceResult ResponseMetadata]
 
 -- End com.amazonaws.services.kinesis.model.SplitShardResult
+
+-- Start com.amazonaws.services.kinesis.model.UpdateShardCountRequest
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.UpdateShardCountRequest" #-} UpdateShardCountRequest = UpdateShardCountRequest (Object# UpdateShardCountRequest)
+  deriving Class
+
+type instance Inherits UpdateShardCountRequest = '[AmazonWebServiceRequest]
+
+foreign import java unsafe "getStreamName" getStreamNameUSCR :: Java UpdateShardCountRequest String
+
+foreign import java unsafe "setStreamName" setStreamNameUSCR :: String -> Java UpdateShardCountRequest ()
+
+foreign import java unsafe "withStreamName"
+  withStreamNameUSCR :: String -> Java UpdateShardCountRequest UpdateShardCountRequest
+
+foreign import java unsafe getScalingType :: Java UpdateShardCountRequest String
+
+foreign import java unsafe getTargetShardCount :: Java UpdateShardCountRequest JInteger
+
+foreign import java unsafe setScalingType :: String -> Java UpdateShardCountRequest ()
+
+foreign import java unsafe setTargetShardCount :: JInteger -> Java UpdateShardCountRequest ()
+
+foreign import java unsafe withScalingType :: String -> Java UpdateShardCountRequest UpdateShardCountRequest
+
+foreign import java unsafe "withScalingType" withScalingType2 :: ScalingType -> Java UpdateShardCountRequest UpdateShardCountRequest
+
+foreign import java unsafe withTargetShardCount :: JInteger -> Java UpdateShardCountRequest UpdateShardCountRequest
+
+-- End com.amazonaws.services.kinesis.model.UpdateShardCountRequest
