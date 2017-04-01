@@ -533,3 +533,49 @@ foreign import java unsafe "withShardLevelMetrics"
   -> Java EnableEnhancedMonitoringRequest EnableEnhancedMonitoringRequest
 
 -- End com.amazonaws.services.kinesis.model.EnableEnhancedMonitoringRequest
+
+-- Start com.amazonaws.services.kinesis.model.EnableEnhancedMonitoringResult
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.EnableEnhancedMonitoringResult" #-} EnableEnhancedMonitoringResult = EnableEnhancedMonitoringResult (Object# EnableEnhancedMonitoringResult)
+  deriving Class
+
+type instance Inherits EnableEnhancedMonitoringResult = '[AmazonWebServiceResult ResponseMetadata]
+
+foreign import java unsafe "getStreamName" getStreamNameEEMResult :: Java EnableEnhancedMonitoringResult String
+
+foreign import java unsafe "setStreamName" setStreamNameEEMR :: String -> Java EnableEnhancedMonitoringResultt ()
+
+foreign import java unsafe "withStreamName"
+  withStreamNameEEMResult :: String -> Java EnableEnhancedMonitoringResult EnableEnhancedMonitoringResult
+
+foreign import java unsafe "getCurrentShardLevelMetrics" getCurrentShardLevelMetricsEEMResult
+  :: Java EnableEnhancedMonitoringResult (List JString)
+
+foreign import java unsafe "getDesiredShardLevelMetrics" getDesiredShardLevelMetricsEEMResult
+  :: Java EnableEnhancedMonitoringResult (List JString)
+
+foreign import java unsafe "setCurrentShardLevelMetrics" setCurrentShardLevelMetricsEEMResult
+ :: Collection JString -> Java EnableEnhancedMonitoringResult ()
+
+foreign import java unsafe "setDesiredShardLevelMetrics" setDesiredShardLevelMetricsEEMResult
+  :: Collection JString -> Java EnableEnhancedMonitoringResult ()
+
+foreign import java unsafe "withCurrentShardLevelMetrics" withCurrentShardLevelMetricsEEMResult
+ :: Collection JString -> Java EnableEnhancedMonitoringResult EnableEnhancedMonitoringResult
+
+foreign import java unsafe "withCurrentShardLevelMetrics" withCurrentShardLevelMetricsEEMResult2
+:: MetricsNameArray -> Java EnableEnhancedMonitoringResult EnableEnhancedMonitoringResult
+
+foreign import java unsafe "withCurrentShardLevelMetrics" withCurrentShardLevelMetricsEEMResult3
+:: JStringArray -> Java EnableEnhancedMonitoringResult EnableEnhancedMonitoringResult
+
+foreign import java unsafe "withDesiredShardLevelMetrics" withDesiredShardLevelMetricsEEMResult
+  :: Collection JString -> Java EnableEnhancedMonitoringResult EnableEnhancedMonitoringResult
+
+foreign import java unsafe "withDesiredShardLevelMetrics" withDesiredShardLevelMetricsEEMResult2
+  :: MetricsNameArray -> Java EnableEnhancedMonitoringResult EnableEnhancedMonitoringResult
+
+foreign import java unsafe "withDesiredShardLevelMetrics" withDesiredShardLevelMetricsEEMResult3
+  :: JStringArray -> Java EnableEnhancedMonitoringResult EnableEnhancedMonitoringResult
+
+-- End com.amazonaws.services.kinesis.model.EnableEnhancedMonitoringResult
