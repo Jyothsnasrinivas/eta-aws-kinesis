@@ -893,3 +893,52 @@ foreign import java unsafe "withTags"
   withTagsLTFSResult :: TagArray -> Java ListTagsForStreamResult ListTagsForStreamResult
 
 -- End com.amazonaws.services.kinesis.model.ListTagsForStreamResult
+
+-- Start com.amazonaws.services.kinesis.model.Tag
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.Tag" #-} Tag = Tag (Object# Tag)
+  deriving Class
+
+foreign import java unsafe getKey :: Java Tag String
+
+foreign import java unsafe getValue :: Java Tag String
+
+foreign import java unsafe "marshall" marshallTag :: ProtocolMarshaller -> Java Tag String
+
+foreign import java unsafe setKey :: String -> Java Tag ()
+
+foreign import java unsafe setValue :: String -> Java Tag ()
+
+foreign import java unsafe withKey :: String -> Java Tag Tag
+
+foreign import java unsafe withValue :: String -> Java Tag Tag
+
+-- End com.amazonaws.services.kinesis.model.Tag
+
+-- Start com.amazonaws.services.kinesis.model.MergeShardsRequest
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.MergeShardsRequest" #-} MergeShardsRequest = MergeShardsRequest (Object# MergeShardsRequest)
+  deriving Class
+
+type instance Inherits MergeShardsRequest = '[AmazonWebServiceRequest]
+
+foreign import java unsafe "getStreamName" getStreamNameMSR :: Java MergeShardsRequest String
+
+foreign import java unsafe "setStreamName" setStreamNameMSR :: String -> Java MergeShardsRequest ()
+
+foreign import java unsafe "withStreamName"
+  withStreamNameMSR :: String -> Java MergeShardsRequest MergeShardsRequest
+
+foreign import java unsafe getAdjacentShardToMerge :: Java MergeShardsRequest String
+
+foreign import java unsafe getShardToMerge :: Java MergeShardsRequest String
+
+foreign import java unsafe setAdjacentShardToMerge :: String -> Java MergeShardsRequest ()
+
+foreign import java unsafe setShardToMerge :: String -> Java MergeShardsRequest ()
+
+foreign import java unsafe withAdjacentShardToMerge :: String -> Java MergeShardsRequest MergeShardsRequest
+
+foreign import java unsafe withShardToMerge :: String -> Java MergeShardsRequest MergeShardsRequest
+
+-- End com.amazonaws.services.kinesis.model.MergeShardsRequest
