@@ -60,3 +60,18 @@ data {-# CLASS "com.amazonaws.services.kinesis.model.CreateStreamResult" #-} Cre
 type instance Inherits CreateStreamResult = '[AmazonWebServiceResult ResponseMetadata]
 
 -- End com.amazonaws.services.kinesis.model.CreateStreamResult
+
+-- Start com.amazonaws.services.kinesis.model.DecreaseStreamRetentionPeriodRequest
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.DecreaseStreamRetentionPeriodRequest" #-} DecreaseStreamRetentionPeriodRequest = DecreaseStreamRetentionPeriodRequest (Object# DecreaseStreamRetentionPeriodRequest)
+  deriving Class
+
+type instance Inherits DecreaseStreamRetentionPeriodRequest = '[AmazonWebServiceRequest]
+
+foreign import java unsafe getRetentionPeriodHours :: Java DecreaseStreamRetentionPeriodRequest JInteger
+
+foreign import java unsafe setRetentionPeriodHours :: JInteger -> Java DecreaseStreamRetentionPeriodRequest ()
+
+foreign import java unsafe withRetentionPeriodHours :: JInteger -> Java DecreaseStreamRetentionPeriodRequest DecreaseStreamRetentionPeriodRequest
+
+-- End com.amazonaws.services.kinesis.model.CreateStreamRequest
