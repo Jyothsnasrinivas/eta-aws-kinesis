@@ -951,3 +951,64 @@ data {-# CLASS "com.amazonaws.services.kinesis.model.MergeShardsResult" #-} Merg
 type instance Inherits MergeShardsResult = '[AmazonWebServiceResult ResponseMetadata]
 
 -- End com.amazonaws.services.kinesis.model.MergeShardsResult
+
+-- Start com.amazonaws.services.kinesis.model.PutRecordRequest
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.PutRecordRequest" #-} PutRecordRequest = PutRecordRequest (Object# PutRecordRequest)
+  deriving Class
+
+type instance Inherits PutRecordRequest = '[AmazonWebServiceRequest]
+
+foreign import java unsafe "getStreamName" getStreamNamePRR :: Java PutRecordRequest String
+
+foreign import java unsafe "setStreamName" setStreamNamePRR :: String -> Java PutRecordRequest ()
+
+foreign import java unsafe "withStreamName"
+  withStreamNamePRR :: String -> Java PutRecordRequest PutRecordRequest
+
+foreign import java unsafe "getData" getDataPRR :: Java PutRecordRequest ByteBuffer
+
+foreign import java unsafe getExplicitHashKey :: Java PutRecordRequest String
+
+foreign import java unsafe getPartitionKey :: Java PutRecordRequest String
+
+foreign import java unsafe getSequenceNumberForOrdering :: Java PutRecordRequest String
+
+foreign import java unsafe "setData" setDataPRR :: ByteBuffer -> Java PutRecordRequest ()
+
+foreign import java unsafe getExplicitHashKey :: String -> Java PutRecordRequest ()
+
+foreign import java unsafe getPartitionKey :: String -> Java PutRecordRequest ()
+
+foreign import java unsafe getSequenceNumberForOrdering :: String -> Java PutRecordRequest ()
+
+foreign import java unsafe "withData" withDataPRR :: ByteBuffer -> Java PutRecordRequest PutRecordRequest
+
+foreign import java unsafe withExplicitHashKey :: String -> Java PutRecordRequest PutRecordRequest
+
+foreign import java unsafe withPartitionKey :: String -> Java PutRecordRequest PutRecordRequest
+
+foreign import java unsafe withSequenceNumberForOrdering :: String -> Java PutRecordRequest PutRecordRequest
+
+-- End com.amazonaws.services.kinesis.model.PutRecordRequest
+
+-- Start com.amazonaws.services.kinesis.model.PutRecordResult
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.PutRecordResult" #-} PutRecordResult = PutRecordResult (Object# PutRecordResult)
+  deriving Class
+
+type instance Inherits PutRecordResult = '[AmazonWebServiceResult ResponseMetadata]
+
+foreign import java unsafe "getSequenceNumber" getSequenceNumberPRR :: Java PutRecordResult String
+
+foreign import java unsafe "getShardId" getShardIdPRR :: Java PutRecordResult String
+
+foreign import java unsafe "setSequenceNumber" setSequenceNumberPRR :: String -> Java PutRecordResult ()
+
+foreign import java unsafe "setShardId" setShardIdPRR :: String -> Java PutRecordResult ()
+
+foreign import java unsafe "withSequenceNumber" withSequenceNumberPRR :: String -> Java PutRecordResult PutRecordResult
+
+foreign import java unsafe "withShardId" withShardIdPRR :: String -> Java PutRecordResult PutRecordResult
+
+-- End com.amazonaws.services.kinesis.model.PutRecordResult
