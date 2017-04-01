@@ -116,3 +116,33 @@ data {-# CLASS "com.amazonaws.services.kinesis.model.DeleteStreamResult" #-} Del
 type instance Inherits DeleteStreamResult = '[AmazonWebServiceResult ResponseMetadata]
 
 -- End com.amazonaws.services.kinesis.model.DeleteStreamResult
+
+-- Start com.amazonaws.services.kinesis.model.DescribeLimitsRequest
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.DescribeLimitsRequest" #-} DescribeLimitsRequest = DescribeLimitsRequest (Object# DescribeLimitsRequest)
+  deriving Class
+
+type instance Inherits DescribeLimitsRequest = '[AmazonWebServiceRequest]
+
+-- End com.amazonaws.services.kinesis.model.DescribeLimitsRequest
+
+-- Start com.amazonaws.services.kinesis.model.DescribeLimitsResult
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.DescribeLimitsResult" #-} DescribeLimitsResult = DescribeLimitsResult (Object# DescribeLimitsResult)
+  deriving Class
+
+type instance Inherits DescribeLimitsResult = '[AmazonWebServiceResult ResponseMetadata]
+
+foreign import java unsafe getOpenShardCount :: Java DescribeLimitsResult JInteger
+
+foreign import java unsafe getShardLimit :: Java DescribeLimitsResult JInteger
+
+foreign import java unsafe setOpenShardCount :: JInteger -> Java DescribeLimitsResult ()
+
+foreign import java unsafe setShardLimit :: Java DescribeLimitsResult JInteger
+
+foreign import java unsafe withOpenShardCount :: JInteger -> Java DescribeLimitsResult DescribeLimitsResult
+
+foreign import java unsafe withShardLimit :: Java DescribeLimitsResult DescribeLimitsResult
+
+-- End com.amazonaws.services.kinesis.model.DescribeLimitsResult
