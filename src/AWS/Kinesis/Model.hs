@@ -424,3 +424,32 @@ foreign import java unsafe "@static @field com.amazonaws.services.kinesis.model.
   streamStatusUPDATING :: StreamStatus
 
 -- End com.amazonaws.services.kinesis.model.StreamStatus
+
+-- Start com.amazonaws.services.kinesis.model.DisableEnhancedMonitoringRequest
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.DisableEnhancedMonitoringRequest" #-} DisableEnhancedMonitoringRequest = DisableEnhancedMonitoringRequest (Object# DisableEnhancedMonitoringRequest)
+  deriving Class
+
+type instance Inherits DisableEnhancedMonitoringRequest = '[AmazonWebServiceRequest]
+
+foreign import java unsafe "getStreamName" getStreamNameDEMR :: Java DescribeStreamRequest String
+
+foreign import java unsafe "setStreamName" setStreamNameDEMR :: String -> Java DescribeStreamRequest ()
+
+foreign import java unsafe "withStreamName"
+  withStreamNameDEMR :: String -> Java DescribeStreamRequest DescribeStreamRequest
+
+foreign import java unsafe getShardLevelMetrics :: Java DisableEnhancedMonitoringRequest (List JString)
+
+foreign import java unsafe setShardLevelMetrics :: Collection JString -> Java DisableEnhancedMonitoringRequest ()
+
+foreign import java unsafe withShardLevelMetrics
+  :: Collection JString -> Java DisableEnhancedMonitoringRequest DisableEnhancedMonitoringRequest
+
+foreign import java unsafe "withShardLevelMetrics" withShardLevelMetrics2
+  :: MetricsNameArray -> Java DisableEnhancedMonitoringRequest DisableEnhancedMonitoringRequest
+
+foreign import java unsafe "withShardLevelMetrics" withShardLevelMetrics3
+  :: JStringArray -> Java DisableEnhancedMonitoringRequest DisableEnhancedMonitoringRequest
+
+-- End com.amazonaws.services.kinesis.model.DisableEnhancedMonitoringRequest
