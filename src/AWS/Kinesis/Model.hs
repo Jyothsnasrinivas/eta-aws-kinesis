@@ -1114,3 +1114,41 @@ foreign import java unsafe "withScalingType" withScalingType2 :: ScalingType -> 
 foreign import java unsafe withTargetShardCount :: JInteger -> Java UpdateShardCountRequest UpdateShardCountRequest
 
 -- End com.amazonaws.services.kinesis.model.UpdateShardCountRequest
+
+-- Start com.amazonaws.services.kinesis.model.UpdateShardCountResult
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.UpdateShardCountResult" #-} UpdateShardCountResult = UpdateShardCountResult (Object# UpdateShardCountResult)
+  deriving Class
+
+type instance Inherits UpdateShardCountResult = '[AmazonWebServiceResult ResponseMetadata]
+
+foreign import java unsafe "getStreamName" getStreamNameUSCResult :: Java UpdateShardCountResult String
+
+foreign import java unsafe "setStreamName" setStreamNameUSCResult :: String -> Java UpdateShardCountResult ()
+
+foreign import java unsafe "withStreamName"
+  withStreamNameUSCResult :: String -> Java UpdateShardCountResult UpdateShardCountResult
+
+foreign import java unsafe getCurrentShardCount :: Java UpdateShardCountResult String
+
+foreign import java unsafe getTargetShardCount :: Java UpdateShardCountResult String
+
+foreign import java unsafe setCurrentShardCount :: String -> Java UpdateShardCountResult ()
+
+foreign import java unsafe setTargetShardCount :: String -> Java UpdateShardCountResult ()
+
+foreign import java unsafe withCurrentShardCount :: String -> Java UpdateShardCountResult UpdateShardCountResult
+
+foreign import java unsafe withTargetShardCount :: String -> Java UpdateShardCountResult UpdateShardCountResult
+
+-- End com.amazonaws.services.kinesis.model.UpdateShardCountResult
+
+-- Start com.amazonaws.services.kinesis.model.ScalingType
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.ScalingType" #-} ScalingType = ScalingType (Object# ScalingType)
+  deriving Class
+
+foreign import java unsafe "@static @field com.amazonaws.services.kinesis.model.ScalingType.UNIFORM_SCALING "
+  scalingTypeUNIFORM_SCALING  :: ScalingType
+
+-- End com.amazonaws.services.kinesis.model.ScalingType
