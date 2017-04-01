@@ -1,6 +1,11 @@
-module AWS.Kinesis.Types
+{-# LANGUAGE TypeOperators #-}
+module AWS.Kinesis.Types where
 
+import Java
+import Java.NIO
 import AWS.Core
+import AWS.Kinesis.Model
+import AWS.Kinesis.Waiters
 
 -- Start com.amazonaws.services.kinesis.AmazonKinesis
 
@@ -64,7 +69,7 @@ foreign import java unsafe "@interface listStreams" listStreams2 :: (a <: Amazon
 foreign import java unsafe "@interface listStreams" listStreams3 :: (a <: AmazonKinesis)
   => ListStreamsRequest -> Java a ListStreamsResult
 
-foreign import java unsafe "@interface listStreams" listStreams :: (a <: AmazonKinesis)
+foreign import java unsafe "@interface listStreams" listStreams4 :: (a <: AmazonKinesis)
   => String -> Java a ListStreamsResult
 
 foreign import java unsafe "@interface listTagsForStream" listTagsForStream :: (a <: AmazonKinesis)
