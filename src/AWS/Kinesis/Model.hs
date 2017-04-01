@@ -2,6 +2,7 @@ module AWS.Kinesis.Model
 
 import AWS.Core
 import Java.Collections
+import Java.NIO
 
 data {-# CLASS "com.amazonaws.services.kinesis.model.EnhancedMetrics[]" #-} EnhancedMetricsArray = EnhancedMetricsArray (Object# EnhancedMetricsArray)
   deriving Class
@@ -636,3 +637,36 @@ foreign import java unsafe "withRecords"
   withRecordsGRResult2 :: RecordArray -> Java GetRecordsResult GetRecordsResult
 
 -- End com.amazonaws.services.kinesis.model.GetRecordsResult
+
+-- Start com.amazonaws.services.kinesis.model.Record
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.Record" #-} Record = Record (Object# Record)
+  deriving Class
+
+foreign import java unsafe getApproximateArrivalTimestamp :: Java Record Date
+
+foreign import java unsafe getData :: Java Record ByteBuffer
+
+foreign import java unsafe getPartitionKey :: Java Record String
+
+foreign import java unsafe getSequenceNumber :: Java Record String
+
+foreign import java unsafe "marshall" marshallRecord :: ProtocolMarshaller -> Java Record ()
+
+foreign import java unsafe setApproximateArrivalTimestamp :: Date -> Java Record ()
+
+foreign import java unsafe setData :: ByteBuffer -> Java Record ()
+
+foreign import java unsafe setPartitionKey :: String -> Java Record ()
+
+foreign import java unsafe setSequenceNumber :: String -> Java Record ()
+
+foreign import java unsafe withApproximateArrivalTimestamp :: Date -> Java Record Record
+
+foreign import java unsafe withData :: ByteBuffer -> Java Record Record
+
+foreign import java unsafe withPartitionKey :: String -> Java Record Record
+
+foreign import java unsafe withSequenceNumber :: String -> Java Record Record
+
+-- End com.amazonaws.services.kinesis.model.Record
