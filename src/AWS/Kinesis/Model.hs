@@ -805,3 +805,28 @@ foreign import java unsafe setExclusiveStartStreamName :: String -> Java ListStr
 foreign import java unsafe withExclusiveStartStreamName :: String -> Java ListStreamsRequest ListStreamsRequest
 
 -- End com.amazonaws.services.kinesis.model.ListStreamsRequest
+
+-- Start com.amazonaws.services.kinesis.model.ListStreamsResult
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.ListStreamsResult" #-} ListStreamsResult = ListStreamsResult (Object# ListStreamsResult)
+  deriving Class
+
+type instance Inherits ListStreamsResult = '[AmazonWebServiceResult ResponseMetadata]
+
+foreign import java unsafe getStreamNames :: Java ListStreamsResult (List JString)
+
+foreign import java unsafe setStreamNames :: Collection JString -> Java ListStreamsResult ()
+
+foreign import java unsafe withStreamNames
+  :: Collection JString -> Java ListStreamsResult ListStreamsResult
+
+foreign import java unsafe "withStreamNames" withStreamNames2
+  :: JStringArray -> Java ListStreamsResult ListStreamsResult
+
+foreign import java unsafe getHasMoreStreams :: Java ListStreamsResult JBoolean
+
+foreign import java unsafe isHasMoreStreams :: Java ListStreamsResult JBoolean
+
+foreign import java unsafe setHasMoreStreams :: JBoolean -> Java ListStreamsResult ()
+
+foreign import java unsafe withHasMoreStreams :: JBoolean -> Java ListStreamsResult ListStreamsResult
