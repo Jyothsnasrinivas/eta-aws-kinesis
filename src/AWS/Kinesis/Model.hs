@@ -1036,3 +1036,14 @@ foreign import java unsafe withTagKeys
 
 foreign import java unsafe "withTagKeys" withTagKeys2
   :: JStringArray -> Java RemoveTagsFromStreamRequest RemoveTagsFromStreamRequest
+
+-- End com.amazonaws.services.kinesis.model.RemoveTagsFromStreamRequest
+
+-- Start com.amazonaws.services.kinesis.model.RemoveTagsFromStreamResult
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.RemoveTagsFromStreamResult" #-} RemoveTagsFromStreamResult = RemoveTagsFromStreamResult (Object# RemoveTagsFromStreamResult)
+  deriving Class
+
+type instance Inherits RemoveTagsFromStreamResult = '[AmazonWebServiceResult ResponseMetadata]
+
+-- End com.amazonaws.services.kinesis.model.RemoveTagsFromStreamResult
