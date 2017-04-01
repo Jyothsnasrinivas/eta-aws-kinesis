@@ -713,3 +713,42 @@ foreign import java unsafe "withStreamName" withStreamNameGSIR :: String -> Java
 foreign import java unsafe withTimestamp :: Date -> Java GetShardIteratorRequest GetShardIteratorRequest
 
 -- End com.amazonaws.services.kinesis.model.GetShardIteratorRequest
+
+-- Start com.amazonaws.services.kinesis.model.GetShardIteratorResult
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.GetShardIteratorResult" #-} GetShardIteratorResult = GetShardIteratorResult (Object# GetShardIteratorResult)
+  deriving Class
+
+type instance Inherits GetShardIteratorResult = '[AmazonWebServiceResult ResponseMetadata]
+
+foreign import java unsafe "getShardIterator" getShardIteratorGSIResult :: Java GetShardIteratorResult String
+
+foreign import java unsafe "setShardIterator"
+  setShardIteratorGSIResult :: String -> Java GetShardIteratorResult ()
+
+foreign import java unsafe "withShardIterator"
+  withShardIteratorGSIResult :: String -> Java GetShardIteratorResult GetShardIteratorResult
+
+-- End com.amazonaws.services.kinesis.model.GetShardIteratorResult
+
+-- Start com.amazonaws.services.kinesis.model.ShardIteratorType
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.ShardIteratorType" #-} ShardIteratorType = ShardIteratorType (Object# ShardIteratorType)
+  deriving Class
+
+foreign import java unsafe "@static @field com.amazonaws.services.kinesis.model.ShardIteratorType.AFTER_SEQUENCE_NUMBER"
+  shardIteratorTypeAFTER_SEQUENCE_NUMBER :: ShardIteratorType
+
+foreign import java unsafe "@static @field com.amazonaws.services.kinesis.model.ShardIteratorType.AT_SEQUENCE_NUMBER"
+  shardIteratorTypeAT_SEQUENCE_NUMBER :: ShardIteratorType
+
+foreign import java unsafe "@static @field com.amazonaws.services.kinesis.model.ShardIteratorType.AT_TIMESTAMP"
+  shardIteratorTypeAT_TIMESTAMP :: ShardIteratorType
+
+foreign import java unsafe "@static @field com.amazonaws.services.kinesis.model.ShardIteratorType.LATEST"
+  shardIteratorTypeLATEST :: ShardIteratorType
+
+foreign import java unsafe "@static @field com.amazonaws.services.kinesis.model.ShardIteratorType.TRIM_HORIZON"
+  shardIteratorTypeTRIM_HORIZON :: ShardIteratorType
+
+-- End com.amazonaws.services.kinesis.model.ShardIteratorType
