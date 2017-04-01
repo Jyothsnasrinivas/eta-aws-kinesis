@@ -670,3 +670,46 @@ foreign import java unsafe withPartitionKey :: String -> Java Record Record
 foreign import java unsafe withSequenceNumber :: String -> Java Record Record
 
 -- End com.amazonaws.services.kinesis.model.Record
+
+-- Start com.amazonaws.services.kinesis.model.GetShardIteratorRequest
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.GetShardIteratorRequest" #-} GetShardIteratorRequest = GetShardIteratorRequest (Object# GetShardIteratorRequest)
+  deriving Class
+
+type instance Inherits GetShardIteratorRequest = '[AmazonWebServiceRequest]
+
+foreign import java unsafe "getShardId" getShardIdGSIR :: Java GetShardIteratorRequest String
+
+foreign import java unsafe getShardIteratorType :: Java GetShardIteratorRequest String
+
+foreign import java unsafe getStartingSequenceNumber :: Java GetShardIteratorRequest String
+
+foreign import java unsafe "getStreamName" getStreamNameGSIR :: Java GetShardIteratorRequest String
+
+foreign import java unsafe getTimestamp :: Java GetShardIteratorRequest Date
+
+foreign import java unsafe "setShardId" setShardIdGSIR :: String -> Java GetShardIteratorRequest ()
+
+foreign import java unsafe setShardIteratorType :: ShardIteratorType -> Java GetShardIteratorRequest ()
+
+foreign import java unsafe "setShardIteratorType" setShardIteratorType2 :: String -> Java GetShardIteratorRequest ()
+
+foreign import java unsafe setStartingSequenceNumber :: String -> Java GetShardIteratorRequest ()
+
+foreign import java unsafe "setStreamName" setStreamNameGSIR :: String -> Java GetShardIteratorRequest ()
+
+foreign import java unsafe setTimestamp :: Date -> Java GetShardIteratorRequest ()
+
+foreign import java unsafe "withShardId" withShardIdGSIR :: String -> Java GetShardIteratorRequest GetShardIteratorRequest
+
+foreign import java unsafe withShardIteratorType :: ShardIteratorType -> Java GetShardIteratorRequest GetShardIteratorRequest
+
+foreign import java unsafe "withShardIteratorType" withShardIteratorType2 :: String -> Java GetShardIteratorRequest GetShardIteratorRequest
+
+foreign import java unsafe withStartingSequenceNumber :: String -> Java GetShardIteratorRequest GetShardIteratorRequest
+
+foreign import java unsafe "withStreamName" withStreamNameGSIR :: String -> Java GetShardIteratorRequest GetShardIteratorRequest
+
+foreign import java unsafe withTimestamp :: Date -> Java GetShardIteratorRequest GetShardIteratorRequest
+
+-- End com.amazonaws.services.kinesis.model.GetShardIteratorRequest
