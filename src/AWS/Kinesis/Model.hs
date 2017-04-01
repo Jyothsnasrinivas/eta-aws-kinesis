@@ -462,9 +462,40 @@ data {-# CLASS "com.amazonaws.services.kinesis.model.DisableEnhancedMonitoringRe
 type instance Inherits DisableEnhancedMonitoringResult = '[AmazonWebServiceResult ResponseMetadata]
 
 foreign import java unsafe getCurrentShardLevelMetrics
-  :: Java DisableEnhancedMonitoringResult -> List JString
+  :: Java DisableEnhancedMonitoringResult (List JString)
 
 foreign import java unsafe getDesiredShardLevelMetrics
-  :: Java DisableEnhancedMonitoringResult -> List JString
+  :: Java DisableEnhancedMonitoringResult (List JString)
+
+foreign import java unsafe "getStreamName" getStreamNameDEMResult :: Java DescribeStreamResult String
+
+foreign import java unsafe "setStreamName" setStreamNameDEMResult :: String -> Java DescribeStreamResult ()
+
+foreign import java unsafe "withStreamName"
+  withStreamNameDEMResult :: String -> Java DescribeStreamResult DescribeStreamRequest
+
+foreign import java unsafe setCurrentShardLevelMetrics
+  :: Collection JString -> Java DisableEnhancedMonitoringResult ()
+
+foreign import java unsafe setDesiredShardLevelMetrics
+  :: Collection JString -> Java DisableEnhancedMonitoringResult ()
+
+foreign import java unsafe withCurrentShardLevelMetrics
+  :: Collection JString -> Java DisableEnhancedMonitoringResult DisableEnhancedMonitoringResult
+
+foreign import java unsafe "withCurrentShardLevelMetrics" withCurrentShardLevelMetrics2
+  :: MetricsNameArray -> Java DisableEnhancedMonitoringResult DisableEnhancedMonitoringResult
+
+foreign import java unsafe "withCurrentShardLevelMetrics" withCurrentShardLevelMetrics3
+  :: JStringArray -> Java DisableEnhancedMonitoringResult DisableEnhancedMonitoringResult
+
+foreign import java unsafe withDesiredShardLevelMetrics
+  :: Collection JString -> Java DisableEnhancedMonitoringResult ()
+
+foreign import java unsafe "withDesiredShardLevelMetrics" withDesiredShardLevelMetrics2
+  :: MetricsNameArray -> Java DisableEnhancedMonitoringResult ()
+
+foreign import java unsafe "withDesiredShardLevelMetrics" withDesiredShardLevelMetrics3
+  :: JStringArray -> Java DisableEnhancedMonitoringResult ()
 
 -- End com.amazonaws.services.kinesis.model.DisableEnhancedMonitoringResult
