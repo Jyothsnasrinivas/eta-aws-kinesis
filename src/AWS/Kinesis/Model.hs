@@ -549,7 +549,7 @@ type instance Inherits EnableEnhancedMonitoringResult = '[AmazonWebServiceResult
 
 foreign import java unsafe "getStreamName" getStreamNameEEMResult :: Java EnableEnhancedMonitoringResult String
 
-foreign import java unsafe "setStreamName" setStreamNameEEMR :: String -> Java EnableEnhancedMonitoringResultt ()
+foreign import java unsafe "setStreamName" setStreamNameEEMR :: String -> Java EnableEnhancedMonitoringResult ()
 
 foreign import java unsafe "withStreamName"
   withStreamNameEEMResult :: String -> Java EnableEnhancedMonitoringResult EnableEnhancedMonitoringResult
@@ -752,3 +752,26 @@ foreign import java unsafe "@static @field com.amazonaws.services.kinesis.model.
   shardIteratorTypeTRIM_HORIZON :: ShardIteratorType
 
 -- End com.amazonaws.services.kinesis.model.ShardIteratorType
+
+-- Start com.amazonaws.services.kinesis.model.IncreaseStreamRetentionPeriodRequest
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.IncreaseStreamRetentionPeriodRequest" #-} IncreaseStreamRetentionPeriodRequest = IncreaseStreamRetentionPeriodRequest (Object# IncreaseStreamRetentionPeriodRequest)
+  deriving Class
+
+type instance Inherits IncreaseStreamRetentionPeriodRequest = '[AmazonWebServiceRequest]
+
+foreign import java unsafe "getStreamName" getStreamNameISRPR :: Java IncreaseStreamRetentionPeriodRequest String
+
+foreign import java unsafe "setStreamName" setStreamNameISRPR :: String -> Java IncreaseStreamRetentionPeriodRequest ()
+
+foreign import java unsafe "withStreamName"
+  withStreamNameISRPR :: String -> Java IncreaseStreamRetentionPeriodRequest IncreaseStreamRetentionPeriodRequest
+
+foreign import java unsafe getRetentionPeriodHours :: Java IncreaseStreamRetentionPeriodRequest JInteger
+
+foreign import java unsafe setRetentionPeriodHours :: JInteger -> Java IncreaseStreamRetentionPeriodRequest ()
+
+foreign import java unsafe withRetentionPeriodHours
+  :: JInteger -> Java IncreaseStreamRetentionPeriodRequest IncreaseStreamRetentionPeriodRequest
+
+-- End com.amazonaws.services.kinesis.model.IncreaseStreamRetentionPeriodRequest
