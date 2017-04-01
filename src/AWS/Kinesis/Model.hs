@@ -2,6 +2,21 @@ module AWS.Kinesis.Model
 
 import AWS.Core
 
+data {-# CLASS "com.amazonaws.services.kinesis.model.EnhancedMetrics[]" #-} EnhancedMetricsArray = EnhancedMetricsArray (Object# EnhancedMetricsArray)
+  deriving Class
+
+instance JArray EnhancedMetrics EnhancedMetricsArray
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.Shard[]" #-} ShardArray = ShardArray (Object# ShardArray)
+  deriving Class
+
+instance JArray Shard ShardArray
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.MetricsName[]" #-} MetricsNameArray = MetricsNameArray (Object# MetricsNameArray)
+  deriving Class
+
+instance JArray MetricsName MetricsNameArray
+
 -- Start com.amazonaws.services.kinesis.model.AddTagsToStreamRequest
 
 data {-# CLASS "com.amazonaws.services.kinesis.model.AddTagsToStreamRequests" #-} AddTagsToStreamRequest = AddTagsToStreamRequest (Object# AddTagsToStreamRequest)
@@ -189,3 +204,122 @@ foreign import java unsafe setStreamDescription :: StreamDescription -> Java Des
 foreign import java unsafe withStreamDescription :: StreamDescription -> Java DescribeStreamResult DescribeStreamResult
 
 -- End com.amazonaws.services.kinesis.model.DeleteStreamResult
+
+-- Start com.amazonaws.services.kinesis.model.StreamDescription
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.StreamDescription" #-} StreamDescription = StreamDescription (Object# StreamDescription)
+  deriving Class
+
+foreign import java unsafe getEnhancedMonitoring :: Java StreamDescription (List EnhancedMetrics)
+
+foreign import java unsafe getHasMoreShards :: Java StreamDescription JBoolean
+
+foreign import java unsafe getRetentionPeriodHours :: Java StreamDescription JInteger
+
+foreign import java unsafe getShards :: Java StreamDescription (List Shard)
+
+foreign import java unsafe getStreamARN :: Java StreamDescription String
+
+foreign import java unsafe getStreamCreationTimestamp :: Java StreamDescription Date
+
+foreign import java unsafe "getStreamName" getStreamNameSD :: Java StreamDescription String
+
+foreign import java unsafe getStreamStatus :: Java StreamDescription String
+
+foreign import java unsafe isHasMoreShards :: Java StreamDescription JBoolean
+
+foreign import java unsafe marshall :: ProtocolMarshaller ->  Java StreamDescription ()
+
+foreign import java unsafe setEnhancedMonitoring :: Collection EnhancedMetrics -> Java StreamDescription ()
+
+foreign import java unsafe setHasMoreShards :: JBoolean ->  Java StreamDescription ()
+
+foreign import java unsafe setRetentionPeriodHours :: JInteger ->  Java StreamDescription ()
+
+foreign import java unsafe setShards :: Collection Shard -> Java StreamDescription ()
+
+foreign import java unsafe setStreamARN :: String -> Java StreamDescription ()
+
+foreign import java unsafe setStreamCreationTimestamp :: Date -> Java StreamDescription ()
+
+foreign import java unsafe "setStreamName" setStreamNameSD :: String -> Java StreamDescription ()
+
+foreign import java unsafe setStreamStatus :: String -> Java StreamDescription ()
+
+foreign import java unsafe withEnhancedMonitoring
+  :: Collection EnhancedMetrics -> Java StreamDescription StreamDescription
+
+foreign import java unsafe "withEnhancedMonitoring" withEnhancedMonitoring2
+  :: EnhancedMetricsArray -> Java StreamDescription StreamDescription
+
+foreign import java unsafe withHasMoreShards :: JBoolean -> Java StreamDescription StreamDescription
+
+foreign import java unsafe withRetentionPeriodHours :: JInteger -> Java StreamDescription StreamDescription
+
+foreign import java unsafe withShards :: Collection Shard -> Java StreamDescription StreamDescription
+
+foreign import java unsafe "withShards" withShards2 :: ShardArray -> Java StreamDescription StreamDescription
+
+foreign import java unsafe withStreamARN :: String -> Java StreamDescription StreamDescription
+
+foreign import java unsafe withStreamCreationTimestamp :: Date -> Java StreamDescription StreamDescription
+
+foreign import java unsafe withStreamStatus :: StreamStatus -> Java StreamDescription StreamDescription
+
+foreign import java unsafe "withStreamStatus" withStreamStatus2 :: String -> Java StreamDescription StreamDescription
+
+foreign import java unsafe withStreamName :: String -> Java StreamDescription StreamDescription
+
+-- End com.amazonaws.services.kinesis.model.StreamDescription
+
+-- Start com.amazonaws.services.kinesis.model.EnhancedMetrics
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.EnhancedMetrics" #-} EnhancedMetrics = EnhancedMetrics (Object# EnhancedMetrics)
+  deriving Class
+
+foreign import java unsafe getShardLevelMetrics :: Java EnhancedMetrics (List JString)
+
+foreign import java unsafe "marshall" marshallEM :: ProtocolMarshaller -> Java EnhancedMetrics ()
+
+foreign import java unsafe setShardLevelMetrics :: Collection JString -> Java EnhancedMetrics ()
+
+foreign import java unsafe withShardLevelMetrics :: Collection JString -> Java EnhancedMetrics ()
+
+foreign import java unsafe "withShardLevelMetrics"
+  withShardLevelMetrics2 :: MetricsNameArray -> Java EnhancedMetrics ()
+
+foreign import java unsafe "withShardLevelMetrics"
+  withShardLevelMetrics3 :: JStringArray -> Java EnhancedMetrics ()
+
+-- End com.amazonaws.services.kinesis.model.EnhancedMetrics
+
+-- Start com.amazonaws.services.kinesis.model.MetricsName
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.MetricsName" #-} MetricsName = MetricsName (Object# MetricsName)
+  deriving Class
+
+foreign import java unsafe "@static @field com.amazonaws.services.kinesis.model.MetricsName.ALL"
+  metricsNameALL :: MetricsName
+
+foreign import java unsafe "@static @field com.amazonaws.services.kinesis.model.MetricsName.IncomingBytes"
+  metricsNameIncomingBytes :: MetricsName
+
+foreign import java unsafe "@static @field com.amazonaws.services.kinesis.model.MetricsName.IncomingRecords"
+  metricsNameIncomingRecords :: MetricsName
+
+foreign import java unsafe "@static @field com.amazonaws.services.kinesis.model.MetricsName.IteratorAgeMilliseconds"
+  metricsNameIteratorAgeMilliseconds :: MetricsName
+
+foreign import java unsafe "@static @field com.amazonaws.services.kinesis.model.MetricsName.OutgoingBytes"
+  metricsNameOutgoingBytes :: MetricsName
+
+foreign import java unsafe "@static @field com.amazonaws.services.kinesis.model.MetricsName.OutgoingRecords"
+  metricsNameOutgoingRecords :: MetricsName
+
+foreign import java unsafe "@static @field com.amazonaws.services.kinesis.model.MetricsName.ReadProvisionedThroughputExceeded"
+  metricsNameReadProvisionedThroughputExceeded :: MetricsName
+
+foreign import java unsafe "@static @field com.amazonaws.services.kinesis.model.MetricsName.WriteProvisionedThroughputExceeded"
+  metricsNameWriteProvisionedThroughputExceeded :: MetricsName
+
+-- End com.amazonaws.services.kinesis.model.MetricsName
