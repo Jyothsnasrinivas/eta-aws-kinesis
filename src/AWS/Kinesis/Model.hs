@@ -146,3 +146,46 @@ foreign import java unsafe withOpenShardCount :: JInteger -> Java DescribeLimits
 foreign import java unsafe withShardLimit :: Java DescribeLimitsResult DescribeLimitsResult
 
 -- End com.amazonaws.services.kinesis.model.DescribeLimitsResult
+
+-- Start com.amazonaws.services.kinesis.model.DescribeStreamRequest
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.DescribeStreamRequest" #-} DescribeStreamRequest = DescribeStreamRequest (Object# DescribeStreamRequest)
+  deriving Class
+
+type instance Inherits DescribeStreamRequest = '[AmazonWebServiceRequest]
+
+foreign import java unsafe "getStreamName" getStreamNameDSRequest :: Java DescribeStreamRequest String
+
+foreign import java unsafe "setStreamName" setStreamNameDSRequest :: String -> Java DescribeStreamRequest ()
+
+foreign import java unsafe "withStreamName"
+  withStreamNameDSRequest :: String -> Java DescribeStreamRequest DescribeStreamRequest
+
+foreign import java unsafe getLimit :: Java DescribeStreamRequest JInteger
+
+foreign import java unsafe setLimit :: JInteger -> Java DescribeStreamRequest ()
+
+foreign import java unsafe withLimit :: JInteger -> Java DescribeStreamRequest DescribeStreamRequest
+
+foreign import java unsafe getExclusiveStartShardId :: Java DescribeStreamRequest String
+
+foreign import java unsafe setExclusiveStartShardId :: String -> Java DescribeStreamRequest ()
+
+foreign import java unsafe withExclusiveStartShardId :: String -> Java DescribeStreamRequest DescribeStreamRequest
+
+-- End com.amazonaws.services.kinesis.model.DescribeStreamRequest
+
+-- Start com.amazonaws.services.kinesis.model.DescribeStreamResult
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.DescribeStreamResult" #-} DescribeStreamResult = DescribeStreamResult (Object# DescribeStreamResult)
+  deriving Class
+
+type instance Inherits DescribeStreamResult = '[AmazonWebServiceResult ResponseMetadata]
+
+foreign import java unsafe getStreamDescription :: Java DescribeStreamResult StreamDescription
+
+foreign import java unsafe setStreamDescription :: StreamDescription -> Java DescribeStreamResult ()
+
+foreign import java unsafe withStreamDescription :: StreamDescription -> Java DescribeStreamResult DescribeStreamResult
+
+-- End com.amazonaws.services.kinesis.model.DeleteStreamResult
