@@ -775,3 +775,12 @@ foreign import java unsafe withRetentionPeriodHours
   :: JInteger -> Java IncreaseStreamRetentionPeriodRequest IncreaseStreamRetentionPeriodRequest
 
 -- End com.amazonaws.services.kinesis.model.IncreaseStreamRetentionPeriodRequest
+
+-- Start com.amazonaws.services.kinesis.model.IncreaseStreamRetentionPeriodResult
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.IncreaseStreamRetentionPeriodResult" #-} IncreaseStreamRetentionPeriodResult = IncreaseStreamRetentionPeriodResult (Object# IncreaseStreamRetentionPeriodResult)
+  deriving Class
+
+type instance Inherits IncreaseStreamRetentionPeriodResult = '[AmazonWebServiceResult ResponseMetadata]
+
+-- End com.amazonaws.services.kinesis.model.IncreaseStreamRetentionPeriodResult
