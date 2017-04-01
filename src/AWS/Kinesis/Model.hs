@@ -107,3 +107,12 @@ foreign import java unsafe "withStreamName"
   withStreamNameDSR :: String -> Java DeleteStreamRequest DeleteStreamRequest
 
 -- End com.amazonaws.services.kinesis.model.DeleteStreamRequest
+
+-- Start com.amazonaws.services.kinesis.model.DeleteStreamResult
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.DeleteStreamResult" #-} DeleteStreamResult = DeleteStreamResult (Object# DeleteStreamResult)
+  deriving Class
+
+type instance Inherits DeleteStreamResult = '[AmazonWebServiceResult ResponseMetadata]
+
+-- End com.amazonaws.services.kinesis.model.DeleteStreamResult
