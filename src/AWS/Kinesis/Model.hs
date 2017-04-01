@@ -453,3 +453,18 @@ foreign import java unsafe "withShardLevelMetrics" withShardLevelMetrics3
   :: JStringArray -> Java DisableEnhancedMonitoringRequest DisableEnhancedMonitoringRequest
 
 -- End com.amazonaws.services.kinesis.model.DisableEnhancedMonitoringRequest
+
+-- Start com.amazonaws.services.kinesis.model.DisableEnhancedMonitoringResult
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.DisableEnhancedMonitoringResult" #-} DisableEnhancedMonitoringResult = DisableEnhancedMonitoringResult (Object# DisableEnhancedMonitoringResult)
+  deriving Class
+
+type instance Inherits DisableEnhancedMonitoringResult = '[AmazonWebServiceResult ResponseMetadata]
+
+foreign import java unsafe getCurrentShardLevelMetrics
+  :: Java DisableEnhancedMonitoringResult -> List JString
+
+foreign import java unsafe getDesiredShardLevelMetrics
+  :: Java DisableEnhancedMonitoringResult -> List JString
+
+-- End com.amazonaws.services.kinesis.model.DisableEnhancedMonitoringResult
