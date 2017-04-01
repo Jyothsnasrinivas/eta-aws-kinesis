@@ -363,3 +363,64 @@ foreign import java unsafe withSequenceNumberRange :: SequenceNumberRange -> Jav
 foreign import java unsafe withShardId :: String -> Java Shard Shard
 
 -- End com.amazonaws.services.kinesis.model.Shard
+
+-- Start com.amazonaws.services.kinesis.model.HashKeyRange
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.HashKeyRange" #-} HashKeyRange = HashKeyRange (Object# HashKeyRange)
+  deriving Class
+
+foreign import java unsafe getEndingHashKey :: Java HashKeyRange String
+
+foreign import java unsafe getStartingHashKey :: Java HashKeyRange String
+
+foreign import java unsafe "marshall" marshallHKR :: ProtocolMarshaller -> Java HashKeyRange ()
+
+foreign import java unsafe setEndingHashKey :: String -> Java HashKeyRange ()
+
+foreign import java unsafe setStartingHashKey :: String -> Java HashKeyRange ()
+
+foreign import java unsafe withEndingHashKey :: String -> Java HashKeyRange HashKeyRange
+
+foreign import java unsafe withStartingHashKey :: String -> Java HashKeyRange HashKeyRange
+
+-- End com.amazonaws.services.kinesis.model.HashKeyRange
+
+-- Start com.amazonaws.services.kinesis.model.SequenceNumberRange
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.SequenceNumberRange" #-} SequenceNumberRange = SequenceNumberRange (Object# SequenceNumberRange)
+  deriving Class
+
+foreign import java unsafe getEndingSequenceNumber :: Java SequenceNumberRange String
+
+foreign import java unsafe getStartingSequenceNumber :: Java SequenceNumberRange String
+
+foreign import java unsafe "marshall" marshallSNR :: ProtocolMarshaller -> Java SequenceNumberRange ()
+
+foreign import java unsafe setEndingSequenceNumber :: String -> Java SequenceNumberRange ()
+
+foreign import java unsafe setStartingSequenceNumber :: String -> Java SequenceNumberRange ()
+
+foreign import java unsafe withEndingSequenceNumber :: String -> Java SequenceNumberRange HashKeyRange
+
+foreign import java unsafe withStartingSequenceNumber :: String -> Java SequenceNumberRange HashKeyRange
+
+-- End com.amazonaws.services.kinesis.model.SequenceNumberRange
+
+-- Start com.amazonaws.services.kinesis.model.StreamStatus
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.StreamStatus" #-} StreamStatus = StreamStatus (Object# StreamStatus)
+  deriving Class
+
+foreign import java unsafe "@static @field com.amazonaws.services.kinesis.model.StreamStatus.ACTIVE"
+  streamStatusACTIVE :: StreamStatus
+
+foreign import java unsafe "@static @field com.amazonaws.services.kinesis.model.StreamStatus.CREATING"
+  streamStatusCREATING :: StreamStatus
+
+foreign import java unsafe "@static @field com.amazonaws.services.kinesis.model.StreamStatus.DELETING"
+  streamStatusDELETING :: StreamStatus
+
+foreign import java unsafe "@static @field com.amazonaws.services.kinesis.model.StreamStatus.UPDATING"
+  streamStatusUPDATING :: StreamStatus
+
+-- End com.amazonaws.services.kinesis.model.StreamStatus
