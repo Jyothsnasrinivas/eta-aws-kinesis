@@ -1,6 +1,10 @@
-module AWS.Kinesis.Model
+{-# LANGUAGE TypeOperators, DataKinds, MagicHash, TypeFamilies, MultiParamTypeClasses #-}
+module AWS.Kinesis.Model where
 
+import Java
 import AWS.Core
+import Java.Array
+import Java.DateTime
 import Java.Collections
 import Java.NIO
 
@@ -28,6 +32,11 @@ data {-# CLASS "com.amazonaws.services.kinesis.model.Tag[]" #-} TagArray = TagAr
   deriving Class
 
 instance JArray Tag TagArray
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.PutRecordsRequestEntry[]" #-} PutRecordsRequestEntryArray = PutRecordsRequestEntryArray (Object# PutRecordsRequestEntryArray)
+  deriving Class
+
+instance JArray PutRecordsRequestEntry PutRecordsRequestEntryArray
 
 -- Start com.amazonaws.services.kinesis.model.AddTagsToStreamRequest
 
@@ -226,7 +235,7 @@ foreign import java unsafe getEnhancedMonitoring :: Java StreamDescription (List
 
 foreign import java unsafe getHasMoreShards :: Java StreamDescription JBoolean
 
-foreign import java unsafe getRetentionPeriodHours :: Java StreamDescription JInteger
+foreign import java unsafe "getRetentionPeriodHours" getRetentionPeriodHoursSD :: Java StreamDescription JInteger
 
 foreign import java unsafe getShards :: Java StreamDescription (List Shard)
 
@@ -246,7 +255,7 @@ foreign import java unsafe setEnhancedMonitoring :: Collection EnhancedMetrics -
 
 foreign import java unsafe setHasMoreShards :: JBoolean ->  Java StreamDescription ()
 
-foreign import java unsafe setRetentionPeriodHours :: JInteger ->  Java StreamDescription ()
+foreign import java unsafe "setRetentionPeriodHours" setRetentionPeriodHoursSD :: JInteger ->  Java StreamDescription ()
 
 foreign import java unsafe setShards :: Collection Shard -> Java StreamDescription ()
 
@@ -266,7 +275,7 @@ foreign import java unsafe "withEnhancedMonitoring" withEnhancedMonitoring2
 
 foreign import java unsafe withHasMoreShards :: JBoolean -> Java StreamDescription StreamDescription
 
-foreign import java unsafe withRetentionPeriodHours :: JInteger -> Java StreamDescription StreamDescription
+foreign import java unsafe "withRetentionPeriodHours" withRetentionPeriodHoursSD :: JInteger -> Java StreamDescription StreamDescription
 
 foreign import java unsafe withShards :: Collection Shard -> Java StreamDescription StreamDescription
 
@@ -280,7 +289,7 @@ foreign import java unsafe withStreamStatus :: StreamStatus -> Java StreamDescri
 
 foreign import java unsafe "withStreamStatus" withStreamStatus2 :: String -> Java StreamDescription StreamDescription
 
-foreign import java unsafe withStreamName :: String -> Java StreamDescription StreamDescription
+foreign import java unsafe "withStreamName" withStreamNameSD :: String -> Java StreamDescription StreamDescription
 
 -- End com.amazonaws.services.kinesis.model.StreamDescription
 
@@ -457,10 +466,10 @@ foreign import java unsafe "setShardLevelMetrics" setShardLevelMetricsDS :: Coll
 foreign import java unsafe "withShardLevelMetrics" withShardLevelMetricsDS
   :: Collection JString -> Java DisableEnhancedMonitoringRequest DisableEnhancedMonitoringRequest
 
-foreign import java unsafe "withShardLevelMetrics" withShardLevelMetrics2
+foreign import java unsafe "withShardLevelMetrics" withShardLevelMetricsDS2
   :: MetricsNameArray -> Java DisableEnhancedMonitoringRequest DisableEnhancedMonitoringRequest
 
-foreign import java unsafe "withShardLevelMetrics" withShardLevelMetrics3
+foreign import java unsafe "withShardLevelMetrics" withShardLevelMetricsDS3
   :: JStringArray -> Java DisableEnhancedMonitoringRequest DisableEnhancedMonitoringRequest
 
 -- End com.amazonaws.services.kinesis.model.DisableEnhancedMonitoringRequest
@@ -540,7 +549,7 @@ foreign import java unsafe "withShardLevelMetrics"
   -> Java EnableEnhancedMonitoringRequest EnableEnhancedMonitoringRequest
 
 foreign import java unsafe "withShardLevelMetrics"
-  withShardLevelMetricsEEMR2 :: JStringArray
+  withShardLevelMetricsEEMR3 :: JStringArray
   -> Java EnableEnhancedMonitoringRequest EnableEnhancedMonitoringRequest
 
 -- End com.amazonaws.services.kinesis.model.EnableEnhancedMonitoringRequest
@@ -554,7 +563,7 @@ type instance Inherits EnableEnhancedMonitoringResult = '[AmazonWebServiceResult
 
 foreign import java unsafe "getStreamName" getStreamNameEEMResult :: Java EnableEnhancedMonitoringResult String
 
-foreign import java unsafe "setStreamName" setStreamNameEEMR :: String -> Java EnableEnhancedMonitoringResult ()
+foreign import java unsafe "setStreamName" setStreamNameEEMResult :: String -> Java EnableEnhancedMonitoringResult ()
 
 foreign import java unsafe "withStreamName"
   withStreamNameEEMResult :: String -> Java EnableEnhancedMonitoringResult EnableEnhancedMonitoringResult
@@ -575,10 +584,10 @@ foreign import java unsafe "withCurrentShardLevelMetrics" withCurrentShardLevelM
  :: Collection JString -> Java EnableEnhancedMonitoringResult EnableEnhancedMonitoringResult
 
 foreign import java unsafe "withCurrentShardLevelMetrics" withCurrentShardLevelMetricsEEMResult2
-:: MetricsNameArray -> Java EnableEnhancedMonitoringResult EnableEnhancedMonitoringResult
+ :: MetricsNameArray -> Java EnableEnhancedMonitoringResult EnableEnhancedMonitoringResult
 
 foreign import java unsafe "withCurrentShardLevelMetrics" withCurrentShardLevelMetricsEEMResult3
-:: JStringArray -> Java EnableEnhancedMonitoringResult EnableEnhancedMonitoringResult
+ :: JStringArray -> Java EnableEnhancedMonitoringResult EnableEnhancedMonitoringResult
 
 foreign import java unsafe "withDesiredShardLevelMetrics" withDesiredShardLevelMetricsEEMResult
   :: Collection JString -> Java EnableEnhancedMonitoringResult EnableEnhancedMonitoringResult
@@ -687,7 +696,7 @@ foreign import java unsafe "getShardId" getShardIdGSIR :: Java GetShardIteratorR
 
 foreign import java unsafe getShardIteratorType :: Java GetShardIteratorRequest String
 
-foreign import java unsafe getStartingSequenceNumber :: Java GetShardIteratorRequest String
+foreign import java unsafe "getStartingSequenceNumber" getStartingSequenceNumberGSIR :: Java GetShardIteratorRequest String
 
 foreign import java unsafe "getStreamName" getStreamNameGSIR :: Java GetShardIteratorRequest String
 
@@ -699,7 +708,7 @@ foreign import java unsafe setShardIteratorType :: ShardIteratorType -> Java Get
 
 foreign import java unsafe "setShardIteratorType" setShardIteratorType2 :: String -> Java GetShardIteratorRequest ()
 
-foreign import java unsafe setStartingSequenceNumber :: String -> Java GetShardIteratorRequest ()
+foreign import java unsafe "setStartingSequenceNumber" setStartingSequenceNumberGSIR :: String -> Java GetShardIteratorRequest ()
 
 foreign import java unsafe "setStreamName" setStreamNameGSIR :: String -> Java GetShardIteratorRequest ()
 
@@ -711,7 +720,7 @@ foreign import java unsafe withShardIteratorType :: ShardIteratorType -> Java Ge
 
 foreign import java unsafe "withShardIteratorType" withShardIteratorType2 :: String -> Java GetShardIteratorRequest GetShardIteratorRequest
 
-foreign import java unsafe withStartingSequenceNumber :: String -> Java GetShardIteratorRequest GetShardIteratorRequest
+foreign import java unsafe "withStartingSequenceNumber" withStartingSequenceNumberGSIR :: String -> Java GetShardIteratorRequest GetShardIteratorRequest
 
 foreign import java unsafe "withStreamName" withStreamNameGSIR :: String -> Java GetShardIteratorRequest GetShardIteratorRequest
 
@@ -772,11 +781,11 @@ foreign import java unsafe "setStreamName" setStreamNameISRPR :: String -> Java 
 foreign import java unsafe "withStreamName"
   withStreamNameISRPR :: String -> Java IncreaseStreamRetentionPeriodRequest IncreaseStreamRetentionPeriodRequest
 
-foreign import java unsafe getRetentionPeriodHours :: Java IncreaseStreamRetentionPeriodRequest JInteger
+foreign import java unsafe "getRetentionPeriodHours" getRetentionPeriodHoursISRPR :: Java IncreaseStreamRetentionPeriodRequest JInteger
 
-foreign import java unsafe setRetentionPeriodHours :: JInteger -> Java IncreaseStreamRetentionPeriodRequest ()
+foreign import java unsafe "setRetentionPeriodHours" setRetentionPeriodHoursISRPR :: JInteger -> Java IncreaseStreamRetentionPeriodRequest ()
 
-foreign import java unsafe withRetentionPeriodHours
+foreign import java unsafe "withRetentionPeriodHours" withRetentionPeriodHoursISRPR
   :: JInteger -> Java IncreaseStreamRetentionPeriodRequest IncreaseStreamRetentionPeriodRequest
 
 -- End com.amazonaws.services.kinesis.model.IncreaseStreamRetentionPeriodRequest
@@ -890,7 +899,7 @@ foreign import java unsafe "withTags"
   withTagsLTFSResult :: Collection Tag -> Java ListTagsForStreamResult ListTagsForStreamResult
 
 foreign import java unsafe "withTags"
-  withTagsLTFSResult :: TagArray -> Java ListTagsForStreamResult ListTagsForStreamResult
+  withTagsLTFSResult2 :: TagArray -> Java ListTagsForStreamResult ListTagsForStreamResult
 
 -- End com.amazonaws.services.kinesis.model.ListTagsForStreamResult
 
@@ -970,23 +979,23 @@ foreign import java unsafe "getData" getDataPRR :: Java PutRecordRequest ByteBuf
 
 foreign import java unsafe getExplicitHashKey :: Java PutRecordRequest String
 
-foreign import java unsafe getPartitionKey :: Java PutRecordRequest String
+foreign import java unsafe "getPartitionKey" getPartitionKeyPPR :: Java PutRecordRequest String
 
 foreign import java unsafe getSequenceNumberForOrdering :: Java PutRecordRequest String
 
 foreign import java unsafe "setData" setDataPRR :: ByteBuffer -> Java PutRecordRequest ()
 
-foreign import java unsafe getExplicitHashKey :: String -> Java PutRecordRequest ()
+foreign import java unsafe setExplicitHashKey :: String -> Java PutRecordRequest ()
 
-foreign import java unsafe getPartitionKey :: String -> Java PutRecordRequest ()
+foreign import java unsafe "setPartitionKey" setPartitionKeyPPR :: String -> Java PutRecordRequest ()
 
-foreign import java unsafe getSequenceNumberForOrdering :: String -> Java PutRecordRequest ()
+foreign import java unsafe setSequenceNumberForOrdering :: String -> Java PutRecordRequest ()
 
 foreign import java unsafe "withData" withDataPRR :: ByteBuffer -> Java PutRecordRequest PutRecordRequest
 
 foreign import java unsafe withExplicitHashKey :: String -> Java PutRecordRequest PutRecordRequest
 
-foreign import java unsafe withPartitionKey :: String -> Java PutRecordRequest PutRecordRequest
+foreign import java unsafe "withPartitionKey" withPartitionKeyPPR :: String -> Java PutRecordRequest PutRecordRequest
 
 foreign import java unsafe withSequenceNumberForOrdering :: String -> Java PutRecordRequest PutRecordRequest
 
@@ -1131,15 +1140,15 @@ foreign import java unsafe "withStreamName"
 
 foreign import java unsafe getCurrentShardCount :: Java UpdateShardCountResult String
 
-foreign import java unsafe getTargetShardCount :: Java UpdateShardCountResult String
+foreign import java unsafe "getTargetShardCount" getTargetShardCountUSCR :: Java UpdateShardCountResult String
 
 foreign import java unsafe setCurrentShardCount :: String -> Java UpdateShardCountResult ()
 
-foreign import java unsafe setTargetShardCount :: String -> Java UpdateShardCountResult ()
+foreign import java unsafe "setTargetShardCount" setTargetShardCountUSCR :: String -> Java UpdateShardCountResult ()
 
 foreign import java unsafe withCurrentShardCount :: String -> Java UpdateShardCountResult UpdateShardCountResult
 
-foreign import java unsafe withTargetShardCount :: String -> Java UpdateShardCountResult UpdateShardCountResult
+foreign import java unsafe "withTargetShardCount" withTargetShardCountUSCR :: String -> Java UpdateShardCountResult UpdateShardCountResult
 
 -- End com.amazonaws.services.kinesis.model.UpdateShardCountResult
 
@@ -1152,3 +1161,65 @@ foreign import java unsafe "@static @field com.amazonaws.services.kinesis.model.
   scalingTypeUNIFORM_SCALING  :: ScalingType
 
 -- End com.amazonaws.services.kinesis.model.ScalingType
+
+-- Start com.amazonaws.services.kinesis.model.PutRecordsRequest
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.PutRecordsRequest" #-} PutRecordsRequest = PutRecordsRequest (Object# PutRecordsRequest)
+  deriving Class
+
+type instance Inherits PutRecordsRequest = '[AmazonWebServiceRequest]
+
+foreign import java unsafe "getStreamName" getStreamNamePRRs :: Java PutRecordsRequest String
+
+foreign import java unsafe "setStreamName" setStreamNamePRRs :: String -> Java PutRecordsRequest ()
+
+foreign import java unsafe "withStreamName"
+  withStreamNamePRRs :: String -> Java PutRecordsRequest PutRecordsRequest
+
+foreign import java unsafe "getRecords"
+  getRecordsPRRs :: Java PutRecordsRequest (List PutRecordsRequestEntry)
+
+foreign import java unsafe "setRecords"
+  setRecordsPRRs :: Collection PutRecordsRequestEntry -> Java PutRecordsRequest ()
+
+foreign import java unsafe "withRecords"
+  withRecordsPRRs :: Collection PutRecordsRequestEntry -> Java PutRecordsRequest PutRecordsRequest
+
+foreign import java unsafe "withRecords"
+  withRecordsPRRs2 :: PutRecordsRequestEntryArray -> Java PutRecordsRequest PutRecordsRequest
+
+-- End com.amazonaws.services.kinesis.model.PutRecordsRequest
+
+-- Start com.amazonaws.services.kinesis.model.PutRecordsResult
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.PutRecordsResult" #-} PutRecordsResult = PutRecordsResult (Object# PutRecordsResult)
+  deriving Class
+
+type instance Inherits PutRecordsResult = '[AmazonWebServiceResult ResponseMetadata]
+
+foreign import java unsafe getFailedRecordCount :: Java PutRecordsResult JInteger
+
+foreign import java unsafe "getRecords"
+  getRecordsPRResults :: Java PutRecordsResult (List PutRecordsRequestEntry)
+
+foreign import java unsafe setFailedRecordCount :: JInteger -> Java PutRecordsResult ()
+
+foreign import java unsafe "setRecords"
+ setRecordsPRResults :: Collection PutRecordsRequestEntry -> Java PutRecordsResult ()
+
+foreign import java unsafe withFailedRecordCount :: JInteger -> Java PutRecordsResult PutRecordsResult
+
+foreign import java unsafe "withRecords"
+ withRecordsPRResults :: Collection PutRecordsRequestEntry -> Java PutRecordsResult PutRecordsResult
+
+foreign import java unsafe "withRecords"
+ withRecordsPRResults2 :: PutRecordsRequestEntryArray -> Java PutRecordsResult PutRecordsResult
+
+ -- End com.amazonaws.services.kinesis.model.PutRecordsResult
+
+ -- Start com.amazonaws.services.kinesis.model.PutRecordsRequestEntry
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.PutRecordsRequestEntry" #-} PutRecordsRequestEntry = PutRecordsRequestEntry (Object# PutRecordsRequestEntry)
+ deriving Class
+
+ -- End com.amazonaws.services.kinesis.model.PutRecordsRequestEntry
