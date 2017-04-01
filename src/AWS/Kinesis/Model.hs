@@ -1,6 +1,7 @@
 module AWS.Kinesis.Model
 
 import AWS.Core
+import Java.Collections
 
 data {-# CLASS "com.amazonaws.services.kinesis.model.EnhancedMetrics[]" #-} EnhancedMetricsArray = EnhancedMetricsArray (Object# EnhancedMetricsArray)
   deriving Class
@@ -323,3 +324,42 @@ foreign import java unsafe "@static @field com.amazonaws.services.kinesis.model.
   metricsNameWriteProvisionedThroughputExceeded :: MetricsName
 
 -- End com.amazonaws.services.kinesis.model.MetricsName
+
+-- Start com.amazonaws.services.kinesis.model.Shard
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.Shard" #-} Shard = Shard (Object# Shard)
+  deriving Class
+
+foreign import java unsafe getAdjacentParentShardId :: Java Shard String
+
+foreign import java unsafe getHashKeyRange :: Java Shard HashKeyRange
+
+foreign import java unsafe getParentShardId :: Java Shard String
+
+foreign import java unsafe getSequenceNumberRange :: Java Shard SequenceNumberRange
+
+foreign import java unsafe getShardId :: Java Shard String
+
+foreign import java unsafe "marshall" marshallShard :: ProtocolMarshaller -> Java Shard ()
+
+foreign import java unsafe setAdjacentParentShardId :: String -> Java Shard ()
+
+foreign import java unsafe setHashKeyRange :: HashKeyRange -> Java Shard ()
+
+foreign import java unsafe setParentShardId :: String -> Java Shard ()
+
+foreign import java unsafe setSequenceNumberRange :: SequenceNumberRange -> Java Shard ()
+
+foreign import java unsafe setShardId :: String -> Java Shard ()
+
+foreign import java unsafe withAdjacentParentShardId :: String -> Java Shard Shard
+
+foreign import java unsafe withHashKeyRange :: HashKeyRange -> Java Shard Shard
+
+foreign import java unsafe withParentShardId :: String -> Java Shard Shard
+
+foreign import java unsafe withSequenceNumberRange :: SequenceNumberRange -> Java Shard Shard
+
+foreign import java unsafe withShardId :: String -> Java Shard Shard
+
+-- End com.amazonaws.services.kinesis.model.Shard
