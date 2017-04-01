@@ -18,6 +18,11 @@ data {-# CLASS "com.amazonaws.services.kinesis.model.MetricsName[]" #-} MetricsN
 
 instance JArray MetricsName MetricsNameArray
 
+data {-# CLASS "com.amazonaws.services.kinesis.model.Record[]" #-} RecordArray = RecordArray (Object# RecordArray)
+  deriving Class
+
+instance JArray Record RecordArray
+
 -- Start com.amazonaws.services.kinesis.model.AddTagsToStreamRequest
 
 data {-# CLASS "com.amazonaws.services.kinesis.model.AddTagsToStreamRequests" #-} AddTagsToStreamRequest = AddTagsToStreamRequest (Object# AddTagsToStreamRequest)
@@ -579,3 +584,55 @@ foreign import java unsafe "withDesiredShardLevelMetrics" withDesiredShardLevelM
   :: JStringArray -> Java EnableEnhancedMonitoringResult EnableEnhancedMonitoringResult
 
 -- End com.amazonaws.services.kinesis.model.EnableEnhancedMonitoringResult
+
+-- Start com.amazonaws.services.kinesis.model.GetRecordsRequest
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.GetRecordsRequest" #-} GetRecordsRequest = GetRecordsRequest (Object# GetRecordsRequest)
+  deriving Class
+
+type instance Inherits GetRecordsRequest = '[AmazonWebServiceRequest]
+
+foreign import java unsafe "getLimit" getLimitGRR :: Java GetRecordsRequest JInteger
+
+foreign import java unsafe "getShardIterator" getShardIteratorGRR :: Java GetRecordsRequest String
+
+foreign import java unsafe "setLimit" setLimitGRR :: JInteger -> Java GetRecordsRequest ()
+
+foreign import java unsafe "setShardIterator" setShardIteratorGRR :: String -> Java GetRecordsRequest ()
+
+foreign import java unsafe "withLimit" withLimitGRR :: JInteger -> Java GetRecordsRequest GetRecordsRequest
+
+foreign import java unsafe "withShardIterator" withShardIteratorGRR :: String -> Java GetRecordsRequest GetRecordsRequest
+
+-- End com.amazonaws.services.kinesis.model.GetRecordsRequest
+
+-- Start com.amazonaws.services.kinesis.model.GetRecordsResult
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.GetRecordsResult" #-} GetRecordsResult = GetRecordsResult (Object# GetRecordsResult)
+  deriving Class
+
+type instance Inherits GetRecordsResult = '[AmazonWebServiceResult ResponseMetadata]
+
+foreign import java unsafe getMillisBehindLatest :: Java GetRecordsResult Int64
+
+foreign import java unsafe getNextShardIterator :: Java GetRecordsResult String
+
+foreign import java unsafe "getRecords" getRecordsGRResult :: Java GetRecordsResult (List Record)
+
+foreign import java unsafe setMillisBehindLatest :: Int64 -> Java GetRecordsResult ()
+
+foreign import java unsafe setNextShardIterator :: String -> Java GetRecordsResult ()
+
+foreign import java unsafe "setRecords" setRecordsGRResult :: Collection Record -> Java GetRecordsResult ()
+
+foreign import java unsafe withMillisBehindLatest :: Int64 -> Java GetRecordsResult GetRecordsResult
+
+foreign import java unsafe withNextShardIterator :: String -> Java GetRecordsResult GetRecordsResult
+
+foreign import java unsafe "withRecords"
+  withRecordsGRResult :: Collection Record -> Java GetRecordsResult GetRecordsResult
+
+foreign import java unsafe "withRecords"
+  withRecordsGRResult2 :: RecordArray -> Java GetRecordsResult GetRecordsResult
+
+-- End com.amazonaws.services.kinesis.model.GetRecordsResult
