@@ -24,6 +24,11 @@ data {-# CLASS "com.amazonaws.services.kinesis.model.Record[]" #-} RecordArray =
 
 instance JArray Record RecordArray
 
+data {-# CLASS "com.amazonaws.services.kinesis.model.Tag[]" #-} TagArray = TagArray (Object# TagArray)
+  deriving Class
+
+instance JArray Tag TagArray
+
 -- Start com.amazonaws.services.kinesis.model.AddTagsToStreamRequest
 
 data {-# CLASS "com.amazonaws.services.kinesis.model.AddTagsToStreamRequests" #-} AddTagsToStreamRequest = AddTagsToStreamRequest (Object# AddTagsToStreamRequest)
@@ -830,3 +835,61 @@ foreign import java unsafe isHasMoreStreams :: Java ListStreamsResult JBoolean
 foreign import java unsafe setHasMoreStreams :: JBoolean -> Java ListStreamsResult ()
 
 foreign import java unsafe withHasMoreStreams :: JBoolean -> Java ListStreamsResult ListStreamsResult
+
+-- End com.amazonaws.services.kinesis.model.ListStreamsResult
+
+-- Start com.amazonaws.services.kinesis.model.ListTagsForStreamRequest
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.ListTagsForStreamRequest" #-} ListTagsForStreamRequest = ListTagsForStreamRequest (Object# ListTagsForStreamRequest)
+  deriving Class
+
+type instance Inherits ListStreamsRequest = '[AmazonWebServiceRequest]
+
+foreign import java unsafe "getLimit" getLimitLTFSR :: Java ListTagsForStreamRequest JInteger
+
+foreign import java unsafe "setLimit" setLimitLTFSR :: JInteger -> Java ListTagsForStreamRequest ()
+
+foreign import java unsafe "withLimit" withLimitLTFSR :: JInteger -> Java ListTagsForStreamRequest ListTagsForStreamRequest
+
+foreign import java unsafe getExclusiveStartTagKey :: Java ListTagsForStreamRequest String
+
+foreign import java unsafe setExclusiveStartTagKey :: String -> Java ListTagsForStreamRequest ()
+
+foreign import java unsafe
+  withExclusiveStartTagKey :: String -> Java ListTagsForStreamRequest ListTagsForStreamRequest
+
+foreign import java unsafe "getStreamName" getStreamNameLTFSR :: Java ListTagsForStreamRequest String
+
+foreign import java unsafe "setStreamName" setStreamNameLTFSR :: String -> Java ListTagsForStreamRequest ()
+
+foreign import java unsafe "withStreamName"
+  withStreamNameLTFSR :: String -> Java ListTagsForStreamRequest ListTagsForStreamRequest
+
+-- End com.amazonaws.services.kinesis.model.ListTagsForStreamRequest
+
+-- Start com.amazonaws.services.kinesis.model.ListTagsForStreamResult
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.ListTagsForStreamResult" #-} ListTagsForStreamResult = ListTagsForStreamResult (Object# ListTagsForStreamResult)
+  deriving Class
+
+type instance Inherits ListTagsForStreamResult = '[AmazonWebServiceResult ResponseMetadata]
+
+foreign import java unsafe getHasMoreTags :: Java ListTagsForStreamResult JBoolean
+
+foreign import java unsafe "getTags" getTagsLTFSResult :: Java ListTagsForStreamResult (List Tag)
+
+foreign import java unsafe isHasMoreTags :: Java ListTagsForStreamResult JBoolean
+
+foreign import java unsafe setHasMoreTags :: JBoolean -> Java ListTagsForStreamResult ()
+
+foreign import java unsafe "setTags" setTagsLTFSResult :: Collection Tag -> Java ListTagsForStreamResult ()
+
+foreign import java unsafe withHasMoreTags :: JBoolean -> Java ListTagsForStreamResult ListTagsForStreamResult
+
+foreign import java unsafe "withTags"
+  withTagsLTFSResult :: Collection Tag -> Java ListTagsForStreamResult ListTagsForStreamResult
+
+foreign import java unsafe "withTags"
+  withTagsLTFSResult :: TagArray -> Java ListTagsForStreamResult ListTagsForStreamResult
+
+-- End com.amazonaws.services.kinesis.model.ListTagsForStreamResult
