@@ -1075,3 +1075,12 @@ foreign import java unsafe withNewStartingHashKey :: String -> Java SplitShardRe
 foreign import java unsafe withShardToSplit :: String -> Java SplitShardRequest SplitShardRequest
 
 -- End com.amazonaws.services.kinesis.model.SplitShardRequest
+
+-- Start com.amazonaws.services.kinesis.model.SplitShardResult
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.SplitShardResult" #-} SplitShardResult = SplitShardResult (Object# SplitShardResult)
+  deriving Class
+
+type instance Inherits SplitShardResult = '[AmazonWebServiceResult ResponseMetadata]
+
+-- End com.amazonaws.services.kinesis.model.SplitShardResult
