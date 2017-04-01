@@ -1047,3 +1047,31 @@ data {-# CLASS "com.amazonaws.services.kinesis.model.RemoveTagsFromStreamResult"
 type instance Inherits RemoveTagsFromStreamResult = '[AmazonWebServiceResult ResponseMetadata]
 
 -- End com.amazonaws.services.kinesis.model.RemoveTagsFromStreamResult
+
+-- Start com.amazonaws.services.kinesis.model.SplitShardRequest
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.SplitShardRequest" #-} SplitShardRequest = SplitShardRequest (Object# SplitShardRequest)
+  deriving Class
+
+type instance Inherits SplitShardRequest = '[AmazonWebServiceRequest]
+
+foreign import java unsafe "getStreamName" getStreamNameSSR :: Java SplitShardRequest String
+
+foreign import java unsafe "setStreamName" setStreamNameSSR :: String -> Java SplitShardRequest ()
+
+foreign import java unsafe "withStreamName"
+  withStreamNameSSR :: String -> Java SplitShardRequest SplitShardRequest
+
+foreign import java unsafe getNewStartingHashKey :: Java SplitShardRequest String
+
+foreign import java unsafe getShardToSplit :: Java SplitShardRequest String
+
+foreign import java unsafe setNewStartingHashKey :: String -> Java SplitShardRequest ()
+
+foreign import java unsafe setShardToSplit :: String -> Java SplitShardRequest ()
+
+foreign import java unsafe withNewStartingHashKey :: String -> Java SplitShardRequest SplitShardRequest
+
+foreign import java unsafe withShardToSplit :: String -> Java SplitShardRequest SplitShardRequest
+
+-- End com.amazonaws.services.kinesis.model.SplitShardRequest
