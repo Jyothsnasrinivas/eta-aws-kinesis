@@ -1012,3 +1012,27 @@ foreign import java unsafe "withSequenceNumber" withSequenceNumberPRR :: String 
 foreign import java unsafe "withShardId" withShardIdPRR :: String -> Java PutRecordResult PutRecordResult
 
 -- End com.amazonaws.services.kinesis.model.PutRecordResult
+
+-- Start com.amazonaws.services.kinesis.model.RemoveTagsFromStreamRequest
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.RemoveTagsFromStreamRequest" #-} RemoveTagsFromStreamRequest = RemoveTagsFromStreamRequest (Object# RemoveTagsFromStreamRequest)
+  deriving Class
+
+type instance Inherits RemoveTagsFromStreamRequest = '[AmazonWebServiceRequest]
+
+foreign import java unsafe "getStreamName" getStreamNameRTFSR :: Java RemoveTagsFromStreamRequest String
+
+foreign import java unsafe "setStreamName" setStreamNameRTFSR :: String -> Java RemoveTagsFromStreamRequest ()
+
+foreign import java unsafe "withStreamName"
+  withStreamNameRTFSR :: String -> Java RemoveTagsFromStreamRequest RemoveTagsFromStreamRequest
+
+foreign import java unsafe getTagKeys :: Java RemoveTagsFromStreamRequest (List JString)
+
+foreign import java unsafe setTagKeys :: Collection JString -> Java RemoveTagsFromStreamRequest ()
+
+foreign import java unsafe withTagKeys
+  :: Collection JString -> Java RemoveTagsFromStreamRequest RemoveTagsFromStreamRequest
+
+foreign import java unsafe "withTagKeys" withTagKeys2
+  :: JStringArray -> Java RemoveTagsFromStreamRequest RemoveTagsFromStreamRequest
