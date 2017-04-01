@@ -942,3 +942,12 @@ foreign import java unsafe withAdjacentShardToMerge :: String -> Java MergeShard
 foreign import java unsafe withShardToMerge :: String -> Java MergeShardsRequest MergeShardsRequest
 
 -- End com.amazonaws.services.kinesis.model.MergeShardsRequest
+
+-- Start com.amazonaws.services.kinesis.model.MergeShardsResult
+
+data {-# CLASS "com.amazonaws.services.kinesis.model.MergeShardsResult" #-} MergeShardsResult = MergeShardsResult (Object# MergeShardsResult)
+  deriving Class
+
+type instance Inherits MergeShardsResult = '[AmazonWebServiceResult ResponseMetadata]
+
+-- End com.amazonaws.services.kinesis.model.MergeShardsResult
