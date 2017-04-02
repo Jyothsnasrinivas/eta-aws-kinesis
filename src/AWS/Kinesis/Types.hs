@@ -1,7 +1,8 @@
-{-# LANGUAGE TypeOperators #-}
+{-# LANGUAGE TypeOperators, DataKinds, TypeFamilies #-}
 module AWS.Kinesis.Types where
 
 import Java
+import Java.Concurrent
 import Java.NIO
 import AWS.Core
 import AWS.Kinesis.Model
@@ -110,3 +111,317 @@ foreign import java unsafe "@interface updateShardCount" updateShardCount :: (a 
 foreign import java unsafe "@interface waiters" waiters :: (a <: AmazonKinesis) => Java a AmazonKinesisWaiters
 
 -- End com.amazonaws.services.kinesis.AmazonKinesis
+
+-- Start com.amazonaws.services.kinesis.AmazonKinesisAsync
+
+data {-# CLASS "com.amazonaws.services.kinesis.AmazonKinesisAsync" #-} AmazonKinesisAsync = AmazonKinesisAsync (Object# AmazonKinesisAsync)
+  deriving Class
+
+type instance Inherits AmazonKinesisAsync = '[AmazonKinesis]
+
+foreign import java unsafe "@interface addTagsToStreamAsync" addTagsToStreamAsync
+ :: (a <: AmazonKinesisAsync) => AddTagsToStreamRequest -> Java a (Future AddTagsToStreamResult)
+
+foreign import java unsafe "@interface addTagsToStreamAsync" addTagsToStreamAsync2
+ :: (a <: AmazonKinesisAsync) => AddTagsToStreamRequest
+ -> AsyncHandler AddTagsToStreamRequest AddTagsToStreamResult
+ -> Java a (Future AddTagsToStreamResult)
+
+foreign import java unsafe "@interface createStreamAsync" createStreamAsync :: (a <: AmazonKinesisAsync)
+ => CreateStreamRequest -> Java a (Future CreateStreamResult)
+
+foreign import java unsafe "@interface createStreamAsync" createStreamAsync2 :: (a <: AmazonKinesisAsync)
+  => CreateStreamRequest -> AsyncHandler CreateStreamRequest CreateStreamResult
+  -> Java a (Future CreateStreamResult)
+
+foreign import java unsafe "@interface createStreamAsync" createStreamAsync3 :: (a <: AmazonKinesisAsync)
+ => String -> JInteger -> Java a (Future CreateStreamResult)
+
+foreign import java unsafe "@interface createStreamAsync" createStreamAsync4 :: (a <: AmazonKinesisAsync)
+ => String -> JInteger -> AsyncHandler CreateStreamRequest CreateStreamResult
+ -> Java a (Future CreateStreamResult)
+
+foreign import java unsafe "@interface decreaseStreamRetentionPeriodAsync"
+  decreaseStreamRetentionPeriodAsync :: (a <: AmazonKinesisAsync)
+  => DecreaseStreamRetentionPeriodRequest -> Java a (Future DecreaseStreamRetentionPeriodResult)
+
+foreign import java unsafe "@interface decreaseStreamRetentionPeriodAsync"
+ decreaseStreamRetentionPeriodAsync2 :: (a <: AmazonKinesisAsync)
+  => DecreaseStreamRetentionPeriodRequest
+  -> AsyncHandler DecreaseStreamRetentionPeriodRequest DecreaseStreamRetentionPeriodResult
+  -> Java a (Future DecreaseStreamRetentionPeriodResult)
+
+foreign import java unsafe "@interface deleteStreamAsync"
+  deleteStreamAsync :: (a <: AmazonKinesisAsync)
+  => DeleteStreamRequest -> Java a (Future DeleteStreamResult)
+
+foreign import java unsafe "@interface deleteStreamAsync"
+  deleteStreamAsync2 :: (a <: AmazonKinesisAsync)
+  => DeleteStreamRequest -> AsyncHandler DeleteStreamRequest DeleteStreamResult
+  -> Java a (Future DeleteStreamResult)
+
+foreign import java unsafe "@interface deleteStreamAsync"
+  deleteStreamAsync3 :: (a <: AmazonKinesisAsync)
+  => String -> Java a (Future DeleteStreamResult)
+
+foreign import java unsafe "@interface deleteStreamAsync"
+  deleteStreamAsync4 :: (a <: AmazonKinesisAsync)
+  => String -> AsyncHandler DeleteStreamRequest DeleteStreamResult
+  -> Java a (Future DeleteStreamResult)
+
+foreign import java unsafe "@interface describeLimitsAsync"
+  describeLimitsAsync :: (a <: AmazonKinesisAsync)
+  => DescribeLimitsRequest -> Java a (Future DescribeLimitsResult)
+
+foreign import java unsafe "@interface describeLimitsAsync"
+  describeLimitsAsync2 :: (a <: AmazonKinesisAsync)
+  => DescribeLimitsRequest -> AsyncHandler DescribeLimitsRequest DescribeLimitsResult
+  -> Java a (Future DescribeLimitsResult)
+
+foreign import java unsafe "@interface describeLimitsAsync"
+  describeLimitsAsync3 :: (a <: AmazonKinesisAsync)
+  => String -> Java a (Future DescribeLimitsResult)
+
+foreign import java unsafe "@interface describeLimitsAsync"
+  describeLimitsAsync4 :: (a <: AmazonKinesisAsync)
+  => String -> AsyncHandler DescribeLimitsRequest DescribeLimitsResult
+  -> Java a (Future DescribeLimitsResult)
+
+foreign import java unsafe "@interface describeLimitsAsync"
+  describeLimitsAsync5 :: (a <: AmazonKinesisAsync)
+  => String -> JInteger -> String -> Java a (Future DescribeLimitsResult)
+
+foreign import java unsafe "@interface describeLimitsAsync"
+  describeLimitsAsync6 :: (a <: AmazonKinesisAsync)
+  => String -> JInteger -> String
+  -> AsyncHandler DescribeLimitsRequest DescribeLimitsResult
+  -> Java a (Future DescribeLimitsResult)
+
+foreign import java unsafe "@interface describeLimitsAsync"
+  describeLimitsAsync7 :: (a <: AmazonKinesisAsync)
+  => String -> String -> Java a (Future DescribeLimitsResult)
+
+foreign import java unsafe "@interface describeLimitsAsync"
+  describeLimitsAsync8 :: (a <: AmazonKinesisAsync)
+  => String -> String
+  -> AsyncHandler DescribeLimitsRequest DescribeLimitsResult
+  -> Java a (Future DescribeLimitsResult)
+
+foreign import java unsafe "@interface disableEnhancedMonitoringAsync"
+  disableEnhancedMonitoringAsync :: (a <: AmazonKinesisAsync)
+  => DisableEnhancedMonitoringRequest -> Java a (Future DisableEnhancedMonitoringResult)
+
+foreign import java unsafe "@interface disableEnhancedMonitoringAsync"
+  disableEnhancedMonitoringAsync2 :: (a <: AmazonKinesisAsync)
+  => DisableEnhancedMonitoringRequest
+  -> AsyncHandler DisableEnhancedMonitoringRequest DisableEnhancedMonitoringResult
+  -> Java a (Future DisableEnhancedMonitoringResult)
+
+foreign import java unsafe "@interface enableEnhancedMonitoringAsync"
+  enableEnhancedMonitoringAsync :: (a <: AmazonKinesisAsync)
+  => EnableEnhancedMonitoringRequest -> Java a (Future EnableEnhancedMonitoringResult)
+
+foreign import java unsafe "@interface enableEnhancedMonitoringAsync"
+  enableEnhancedMonitoringAsync2 :: (a <: AmazonKinesisAsync)
+  => EnableEnhancedMonitoringRequest
+  -> AsyncHandler EnableEnhancedMonitoringRequest EnableEnhancedMonitoringRequest
+  -> Java a (Future EnableEnhancedMonitoringResult)
+
+foreign import java unsafe "@interface getRecordsAsync"
+  getRecordsAsync :: (a <: AmazonKinesisAsync)
+  => GetRecordsRequest -> Java a (Future GetRecordsResult)
+
+foreign import java unsafe "@interface getRecordsAsync"
+  getRecordsAsync2 :: (a <: AmazonKinesisAsync)
+  => GetRecordsRequest
+  -> AsyncHandler GetRecordsRequest GetRecordsResult
+  -> Java a (Future GetRecordsResult)
+
+foreign import java unsafe "@interface getShardIteratorAsync"
+  getShardIteratorAsync :: (a <: AmazonKinesisAsync)
+  => GetShardIteratorRequest -> Java a (Future GetShardIteratorResult)
+
+foreign import java unsafe "@interface getShardIteratorAsync"
+  getShardIteratorAsync2 :: (a <: AmazonKinesisAsync)
+  => GetShardIteratorRequest
+  -> AsyncHandler GetShardIteratorRequest GetShardIteratorRequest
+  -> Java a (Future GetShardIteratorResult)
+
+foreign import java unsafe "@interface getShardIteratorAsync"
+  getShardIteratorAsync3 :: (a <: AmazonKinesisAsync)
+  => String -> String -> String -> Java a (Future GetShardIteratorResult)
+
+foreign import java unsafe "@interface getShardIteratorAsync"
+  getShardIteratorAsync4 :: (a <: AmazonKinesisAsync)
+  => String -> String -> String
+  -> AsyncHandler GetShardIteratorRequest GetShardIteratorRequest
+  -> Java a (Future GetShardIteratorResult)
+
+foreign import java unsafe "@interface getShardIteratorAsync"
+  getShardIteratorAsync5 :: (a <: AmazonKinesisAsync)
+  => String -> String -> String -> String -> Java a (Future GetShardIteratorResult)
+
+foreign import java unsafe "@interface getShardIteratorAsync"
+  getShardIteratorAsync6 :: (a <: AmazonKinesisAsync)
+  => String -> String -> String -> String
+  -> AsyncHandler GetShardIteratorRequest GetShardIteratorRequest
+  -> Java a (Future GetShardIteratorResult)
+
+foreign import java unsafe "@interface increaseStreamRetentionPeriodAsync"
+  increaseStreamRetentionPeriodAsync :: (a <: AmazonKinesisAsync)
+  => IncreaseStreamRetentionPeriodRequest -> Java a (Future IncreaseStreamRetentionPeriodResult)
+
+foreign import java unsafe "@interface increaseStreamRetentionPeriodAsync"
+  increaseStreamRetentionPeriodAsync2 :: (a <: AmazonKinesisAsync)
+  => IncreaseStreamRetentionPeriodRequest
+  -> AsyncHandler IncreaseStreamRetentionPeriodRequest IncreaseStreamRetentionPeriodResult
+  -> Java a (Future IncreaseStreamRetentionPeriodResult)
+
+foreign import java unsafe "@interface listStreamsAsync"
+  listStreamsAsync :: (a <: AmazonKinesisAsync) => Java a (Future ListStreamsResult)
+
+foreign import java unsafe "@interface listStreamsAsync"
+  listStreamsAsync2 :: (a <: AmazonKinesisAsync)
+  => AsyncHandler ListStreamsRequest ListStreamsResult
+  -> Java a (Future ListStreamsResult)
+
+foreign import java unsafe "@interface listStreamsAsync"
+  listStreamsAsync3 :: (a <: AmazonKinesisAsync)
+  => JInteger -> String -> Java a (Future ListStreamsResult)
+
+foreign import java unsafe "@interface listStreamsAsync"
+  listStreamsAsync4 :: (a <: AmazonKinesisAsync)
+  => JInteger -> String
+  -> AsyncHandler ListStreamsRequest ListStreamsResult
+  -> Java a (Future ListStreamsResult)
+
+foreign import java unsafe "@interface listStreamsAsync"
+  listStreamsAsync5 :: (a <: AmazonKinesisAsync)
+  => ListStreamsRequest -> Java a (Future ListStreamsResult)
+
+foreign import java unsafe "@interface listStreamsAsync"
+  listStreamsAsync6 :: (a <: AmazonKinesisAsync)
+  => ListStreamsRequest
+  -> AsyncHandler ListStreamsRequest ListStreamsResult
+  -> Java a (Future ListStreamsResult)
+
+foreign import java unsafe "@interface listStreamsAsync"
+  listStreamsAsync7 :: (a <: AmazonKinesisAsync)
+  => String -> Java a (Future ListStreamsResult)
+
+foreign import java unsafe "@interface listStreamsAsync"
+  listStreamsAsync8 :: (a <: AmazonKinesisAsync)
+  => String -> AsyncHandler ListStreamsRequest ListStreamsResult
+  -> Java a (Future ListStreamsResult)
+
+foreign import java unsafe "@interface listTagsForStreamAsync"
+  listTagsForStreamAsync :: (a <: AmazonKinesisAsync)
+  => ListTagsForStreamRequest -> Java a (Future ListTagsForStreamResult)
+
+foreign import java unsafe "@interface listTagsForStreamAsync"
+  listTagsForStreamAsync2 :: (a <: AmazonKinesisAsync)
+  => ListTagsForStreamRequest
+  -> AsyncHandler ListTagsForStreamRequest ListTagsForStreamResult
+  -> Java a (Future ListTagsForStreamResult)
+
+foreign import java unsafe "@interface mergeShardsAsync"
+  mergeShardsAsync :: (a <: AmazonKinesisAsync)
+  => MergeShardsRequest -> Java a (Future MergeShardsResult)
+
+foreign import java unsafe "@interface mergeShardsAsync"
+  mergeShardsAsync2 :: (a <: AmazonKinesisAsync)
+  => MergeShardsRequest
+  -> AsyncHandler MergeShardsRequest MergeShardsResult
+  -> Java a (Future MergeShardsResult)
+
+foreign import java unsafe "@interface mergeShardsAsync"
+  mergeShardsAsync3 :: (a <: AmazonKinesisAsync)
+  => String -> String -> String -> Java a (Future MergeShardsResult)
+
+foreign import java unsafe "@interface mergeShardsAsync"
+  mergeShardsAsync4 :: (a <: AmazonKinesisAsync)
+  => String -> String -> String
+  -> AsyncHandler MergeShardsRequest MergeShardsResult
+  -> Java a (Future MergeShardsResult)
+
+foreign import java unsafe "@interface putRecordAsync"
+  putRecordAsync :: (a <: AmazonKinesisAsync)
+  => PutRecordRequest -> Java a (Future PutRecordResult)
+
+foreign import java unsafe "@interface putRecordAsync"
+  putRecordAsync2 :: (a <: AmazonKinesisAsync)
+  => PutRecordRequest
+  -> AsyncHandler PutRecordRequest PutRecordResult
+  -> Java a (Future PutRecordResult)
+
+foreign import java unsafe "@interface putRecordAsync"
+  putRecordAsync3 :: (a <: AmazonKinesisAsync)
+  => String -> ByteBuffer -> String -> Java a (Future PutRecordResult)
+
+foreign import java unsafe "@interface putRecordAsync"
+  putRecordAsync4 :: (a <: AmazonKinesisAsync)
+  => String -> ByteBuffer -> String
+  -> AsyncHandler PutRecordRequest PutRecordResult
+  -> Java a (Future PutRecordResult)
+
+foreign import java unsafe "@interface putRecordAsync"
+  putRecordAsync5 :: (a <: AmazonKinesisAsync)
+  => String -> ByteBuffer -> String -> String -> Java a (Future PutRecordResult)
+
+foreign import java unsafe "@interface putRecordAsync"
+  putRecordAsync6 :: (a <: AmazonKinesisAsync)
+  => String -> ByteBuffer -> String -> String
+  -> AsyncHandler PutRecordRequest PutRecordResult
+  -> Java a (Future PutRecordResult)
+
+foreign import java unsafe "@interface putRecordsAsync"
+  putRecordsAsync :: (a <: AmazonKinesisAsync)
+  => PutRecordsRequest -> Java a (Future PutRecordsResult)
+
+foreign import java unsafe "@interface putRecordsAsync"
+  putRecordsAsync2 :: (a <: AmazonKinesisAsync)
+  => PutRecordsRequest
+  -> AsyncHandler PutRecordsRequest PutRecordsResult
+  -> Java a (Future PutRecordsResult)
+
+foreign import java unsafe "@interface removeTagsFromStreamAsync"
+  removeTagsFromStreamAsync :: (a <: AmazonKinesisAsync)
+  => RemoveTagsFromStreamRequest -> Java a (Future RemoveTagsFromStreamResult)
+
+foreign import java unsafe "@interface removeTagsFromStreamAsync"
+  removeTagsFromStreamAsync2 :: (a <: AmazonKinesisAsync)
+  => RemoveTagsFromStreamRequest
+  -> AsyncHandler RemoveTagsFromStreamRequest RemoveTagsFromStreamResult
+  -> Java a (Future RemoveTagsFromStreamResult)
+
+foreign import java unsafe "@interface splitShardAsync"
+  splitShardAsync :: (a <: AmazonKinesisAsync)
+  => SplitShardRequest -> Java a (Future SplitShardResult)
+
+foreign import java unsafe "@interface splitShardAsync"
+  splitShardAsync2 :: (a <: AmazonKinesisAsync)
+  => SplitShardRequest
+  -> AsyncHandler SplitShardRequest SplitShardResult
+  -> Java a (Future SplitShardResult)
+
+foreign import java unsafe "@interface splitShardAsync"
+  splitShardAsync3 :: (a <: AmazonKinesisAsync)
+  => String -> String -> String -> Java a (Future SplitShardResult)
+
+foreign import java unsafe "@interface splitShardAsync"
+  splitShardAsync4 :: (a <: AmazonKinesisAsync)
+  => String -> String -> String
+  -> AsyncHandler SplitShardRequest SplitShardResult
+  -> Java a (Future SplitShardResult)
+
+foreign import java unsafe "@interface updateShardCountAsync"
+  updateShardCountAsync :: (a <: AmazonKinesisAsync)
+  => UpdateShardCountRequest -> Java a (Future UpdateShardCountResult)
+
+foreign import java unsafe "@interface updateShardCountAsync"
+  updateShardCountAsync2 :: (a <: AmazonKinesisAsync)
+  => UpdateShardCountRequest
+  -> AsyncHandler UpdateShardCountRequest UpdateShardCountResult
+  -> Java a (Future UpdateShardCountResult)
+
+-- End com.amazonaws.services.kinesis.AmazonKinesisAsync
