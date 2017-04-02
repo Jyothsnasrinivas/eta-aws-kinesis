@@ -97,6 +97,12 @@ foreign import java unsafe "@interface putRecords" putRecords :: (a <: AmazonKin
 foreign import java unsafe "@interface removeTagsFromStream" removeTagsFromStream :: (a <: AmazonKinesis)
   => RemoveTagsFromStreamRequest -> Java a RemoveTagsFromStreamResult
 
+foreign import java unsafe "@interface setEndpoint" setEndpoint :: (a <: AmazonKinesis)
+  => String -> Java a ()
+
+foreign import java unsafe "@interface setRegion" setRegion :: (a <: AmazonKinesis)
+  => Region -> Java a ()
+
 foreign import java unsafe "@interface shutdown" shutdown :: (a <: AmazonKinesis) => Java a ()
 
 foreign import java unsafe "@interface splitShard" splitShard :: (a <: AmazonKinesis)
@@ -425,3 +431,12 @@ foreign import java unsafe "@interface updateShardCountAsync"
   -> Java a (Future UpdateShardCountResult)
 
 -- End com.amazonaws.services.kinesis.AmazonKinesisAsync
+
+-- Start com.amazonaws.services.kinesis.AbstractAmazonKinesis
+
+data {-# CLASS "com.amazonaws.services.kinesis.AbstractAmazonKinesis" #-} AbstractAmazonKinesis = AbstractAmazonKinesis (Object# AbstractAmazonKinesis)
+  deriving Class
+
+type instance Inherits AbstractAmazonKinesis = '[Object, AmazonKinesis]
+
+-- End com.amazonaws.services.kinesis.AbstractAmazonKinesis
