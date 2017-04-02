@@ -440,3 +440,48 @@ data {-# CLASS "com.amazonaws.services.kinesis.AbstractAmazonKinesis" #-} Abstra
 type instance Inherits AbstractAmazonKinesis = '[Object, AmazonKinesis]
 
 -- End com.amazonaws.services.kinesis.AbstractAmazonKinesis
+
+-- Start com.amazonaws.services.kinesis.AbstractAmazonKinesisAsync
+
+data {-# CLASS "com.amazonaws.services.kinesis.AbstractAmazonKinesisAsync" #-} AbstractAmazonKinesisAsync = AbstractAmazonKinesisAsync (Object# AbstractAmazonKinesisAsync)
+  deriving Class
+
+type instance Inherits AbstractAmazonKinesisAsync = '[AbstractAmazonKinesis, AmazonKinesisAsync]
+
+-- End com.amazonaws.services.kinesis.AbstractAmazonKinesisAsync
+
+-- Start com.amazonaws.services.kinesis.AmazonKinesisClient
+
+data {-# CLASS "com.amazonaws.services.kinesis.AmazonKinesisClient" #-} AmazonKinesisClient = AmazonKinesisClient (Object# AmazonKinesisClient)
+  deriving Class
+
+type instance Inherits AmazonKinesisClient = '[AmazonWebServiceClient, AmazonKinesis]
+
+-- End com.amazonaws.services.kinesis.AmazonKinesisClient
+
+-- Start com.amazonaws.services.kinesis.AmazonKinesisAsyncClient
+
+data {-# CLASS "com.amazonaws.services.kinesis.AmazonKinesisAsyncClient" #-} AmazonKinesisAsyncClient = AmazonKinesisAsyncClient (Object# AmazonKinesisAsyncClient)
+  deriving Class
+
+type instance Inherits AmazonKinesisAsyncClient = '[AmazonKinesisClient, AmazonKinesisAsync]
+
+-- End com.amazonaws.services.kinesis.AmazonKinesisAsyncClient
+
+-- Start com.amazonaws.services.kinesis.AmazonKinesisClientBuilder
+
+data {-# CLASS "com.amazonaws.services.kinesis.AmazonKinesisClientBuilder" #-} AmazonKinesisClientBuilder = AmazonKinesisClientBuilder (Object# AmazonKinesisClientBuilder)
+  deriving Class
+
+type instance Inherits AmazonKinesisClientBuilder = '[AwsSyncClientBuilder AmazonKinesisClientBuilder AmazonKinesis]
+
+-- End com.amazonaws.services.kinesis.AwsSyncClientBuilder
+
+-- Start com.amazonaws.services.kinesis.AmazonKinesisAsyncClientBuilder
+
+data {-# CLASS "com.amazonaws.services.kinesis.AmazonKinesisAsyncClientBuilder" #-} AmazonKinesisAsyncClientBuilder = AmazonKinesisAsyncClientBuilder (Object# AmazonKinesisAsyncClientBuilder)
+  deriving Class
+
+type instance Inherits AmazonKinesisAsyncClientBuilder = '[AwsAsyncClientBuilder AmazonKinesisAsyncClientBuilder AmazonKinesisAsync]
+
+-- End com.amazonaws.services.kinesis.AmazonKinesisAsyncClientBuilder
